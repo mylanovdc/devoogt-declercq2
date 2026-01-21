@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { motion } from "framer-motion";
+import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Phone, Mail, MapPin, Clock, Send, Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -41,15 +43,35 @@ const ContactPage = () => {
       {/* Hero Section */}
       <section className="py-32 hero-gradient">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="industrial-divider mx-auto mb-6" />
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wider mb-4">
+          <motion.div
+            className="max-w-3xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.div
+              className="industrial-divider mx-auto mb-6"
+              initial={{ width: 0 }}
+              animate={{ width: "6rem" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            />
+            <motion.h1
+              className="font-display text-4xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wider mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
               Contact
-            </h1>
-            <p className="text-xl text-muted-foreground">
+            </motion.h1>
+            <motion.p
+              className="text-xl text-muted-foreground"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               Neem contact op voor een vrijblijvende offerte of meer informatie.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -59,74 +81,94 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
-              <h2 className="font-display text-3xl text-primary uppercase tracking-wider mb-8">
-                Direct Contact
-              </h2>
+              <FadeInView>
+                <h2 className="font-display text-3xl text-primary uppercase tracking-wider mb-8">
+                  Direct Contact
+                </h2>
+              </FadeInView>
 
-              <div className="space-y-6 mb-12">
-                <a
-                  href="tel:0476926625"
-                  className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm hover:border-primary transition-colors group"
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center group-hover:bg-primary transition-colors">
-                    <Phone className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
-                  </div>
-                  <div>
-                    <span className="block text-muted-foreground text-sm">Telefoon</span>
-                    <span className="text-lg text-card-foreground font-semibold">0476 / 92 66 25</span>
-                  </div>
-                </a>
+              <StaggerContainer className="space-y-6 mb-12" staggerDelay={0.1}>
+                <StaggerItem>
+                  <motion.a
+                    href="tel:0476926625"
+                    className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm hover:border-primary transition-colors group"
+                    whileHover={{ x: 8 }}
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center group-hover:bg-primary transition-colors">
+                      <Phone className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                    </div>
+                    <div>
+                      <span className="block text-muted-foreground text-sm">Telefoon</span>
+                      <span className="text-lg text-card-foreground font-semibold">0476 / 92 66 25</span>
+                    </div>
+                  </motion.a>
+                </StaggerItem>
 
-                <a
-                  href="mailto:info@devoogt-declercq.be"
-                  className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm hover:border-primary transition-colors group"
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center group-hover:bg-primary transition-colors">
-                    <Mail className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
-                  </div>
-                  <div>
-                    <span className="block text-muted-foreground text-sm">E-mail</span>
-                    <span className="text-lg text-card-foreground font-semibold">info@devoogt-declercq.be</span>
-                  </div>
-                </a>
+                <StaggerItem>
+                  <motion.a
+                    href="mailto:info@devoogt-declercq.be"
+                    className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm hover:border-primary transition-colors group"
+                    whileHover={{ x: 8 }}
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center group-hover:bg-primary transition-colors">
+                      <Mail className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                    </div>
+                    <div>
+                      <span className="block text-muted-foreground text-sm">E-mail</span>
+                      <span className="text-lg text-card-foreground font-semibold">info@devoogt-declercq.be</span>
+                    </div>
+                  </motion.a>
+                </StaggerItem>
 
-                <div className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm">
-                  <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <span className="block text-muted-foreground text-sm">Adres</span>
-                    <span className="text-lg text-card-foreground font-semibold">
-                      Mortelputstraat 23<br />
-                      8810 Lichtervelde
-                    </span>
-                  </div>
-                </div>
+                <StaggerItem>
+                  <motion.div
+                    className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm"
+                    whileHover={{ x: 8 }}
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center">
+                      <MapPin className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <span className="block text-muted-foreground text-sm">Adres</span>
+                      <span className="text-lg text-card-foreground font-semibold">
+                        Mortelputstraat 23<br />
+                        8810 Lichtervelde
+                      </span>
+                    </div>
+                  </motion.div>
+                </StaggerItem>
 
-                <div className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm">
-                  <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <span className="block text-muted-foreground text-sm">Bereikbaarheid</span>
-                    <span className="text-lg text-card-foreground font-semibold">Ma - Vr: 7:00 - 18:00</span>
-                  </div>
-                </div>
-              </div>
+                <StaggerItem>
+                  <motion.div
+                    className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm"
+                    whileHover={{ x: 8 }}
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-sm flex items-center justify-center">
+                      <Clock className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <span className="block text-muted-foreground text-sm">Bereikbaarheid</span>
+                      <span className="text-lg text-card-foreground font-semibold">Ma - Vr: 7:00 - 18:00</span>
+                    </div>
+                  </motion.div>
+                </StaggerItem>
+              </StaggerContainer>
 
               {/* Map Placeholder */}
-              <div className="bg-card border border-border rounded-sm h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <p className="text-muted-foreground">
-                    Mortelputstraat 23, 8810 Lichtervelde
-                  </p>
+              <FadeInView delay={0.3}>
+                <div className="bg-card border border-border rounded-sm h-64 flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <p className="text-muted-foreground">
+                      Mortelputstraat 23, 8810 Lichtervelde
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </FadeInView>
             </div>
 
             {/* Contact Form */}
-            <div>
+            <FadeInView direction="right" delay={0.2}>
               <h2 className="font-display text-3xl text-primary uppercase tracking-wider mb-8">
                 Offerteformulier
               </h2>
@@ -221,7 +263,10 @@ const ContactPage = () => {
                       onChange={handleFileChange}
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     />
-                    <div className="bg-card border border-dashed border-border rounded-sm p-6 text-center hover:border-primary transition-colors">
+                    <motion.div
+                      className="bg-card border border-dashed border-border rounded-sm p-6 text-center hover:border-primary transition-colors"
+                      whileHover={{ scale: 1.01 }}
+                    >
                       <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
                       {fileName ? (
                         <p className="text-card-foreground">{fileName}</p>
@@ -230,28 +275,30 @@ const ContactPage = () => {
                           Klik om een foto te uploaden voor een snelle inschatting
                         </p>
                       )}
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
 
-                <Button
-                  type="submit"
-                  variant="hero"
-                  size="xl"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    "Verzenden..."
-                  ) : (
-                    <>
-                      <Send className="h-5 w-5" />
-                      Verstuur Aanvraag
-                    </>
-                  )}
-                </Button>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="xl"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      "Verzenden..."
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5" />
+                        Verstuur Aanvraag
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
               </form>
-            </div>
+            </FadeInView>
           </div>
         </div>
       </section>
