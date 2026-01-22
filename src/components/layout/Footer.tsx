@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/logodevoogt-declercq.webp";
 
 export function Footer() {
   return (
@@ -7,23 +8,22 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex flex-col mb-4">
-              <span className="font-display text-2xl font-bold text-primary tracking-wider">
-                DEVOOGT-DECLERCQ
-              </span>
-              <span className="text-sm text-muted-foreground tracking-widest uppercase">
-                Containerdienst & Grondwerken
-              </span>
-            </div>
-            <p className="text-muted-foreground mb-6 max-w-md">
-              Met ons eigen machinepark hebben we alles in eigen beheer voor de realisatie van uw projecten, groot of klein.
-            </p>
-            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-              <span>OVAM 3824/1</span>
-              <span>Registratie 052810</span>
-            </div>
-          </div>
+<div className="lg:col-span-2">
+  <div className="flex flex-col mb-6">
+    <img 
+      src={logo}
+      alt="Devoogt-Declercq" 
+      className="h-auto max-w-[280px] object-contain"
+    />
+  </div>
+  <p className="text-muted-foreground mb-6 max-w-md italic">
+    Met ons eigen machinepark hebben we alles in eigen beheer voor de realisatie van uw projecten, groot of klein.
+  </p>
+  <div className="flex flex-col gap-2 text-sm text-muted-foreground font-mono">
+    <span>OVAM 3824/1</span>
+    <span>Registratie 052810</span>
+  </div>
+</div>
 
           {/* Quick Links */}
           <div>

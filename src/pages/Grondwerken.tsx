@@ -3,19 +3,23 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
-import { HardHat, Truck, CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import excavatorLarge from "@/assets/excavator-large.jpg";
 import excavatorSmall from "@/assets/excavator-small.jpg";
+import { HardHat, Truck, CheckCircle2, ArrowRight, Phone, Package } from "lucide-react";
 
 const services = [
-  "Uitdelven opritten en terrassen",
-  "Nivelleren van terreinen",
-  "Plaatsen van regenputten",
-  "Plaatsen van zwembaden",
-  "Afbraak van woningen",
-  "Afbraak van loodsen",
-  "Grondafvoer en aanvoer",
-  "Bouwrijp maken van terreinen",
+  { title: "Uitdelven opritten", icon: <Truck className="h-6 w-6" /> },
+  { title: "Nivelleren terreinen", icon: <CheckCircle2 className="h-6 w-6" /> },
+  { title: "Plaatsen regenputten", icon: <Package className="h-6 w-6" /> },
+  { title: "Plaatsen zwembaden", icon: <CheckCircle2 className="h-6 w-6" /> },
+  { title: "Afbraak woningen", icon: <HardHat className="h-6 w-6" /> },
+  { title: "Afbraak loodsen", icon: <HardHat className="h-6 w-6" /> },
+  { title: "Grondafvoer & aanvoer", icon: <Truck className="h-6 w-6" /> },
+  { title: "Bouwrijp maken", icon: <CheckCircle2 className="h-6 w-6" /> },
+  { title: "Plaatsen vijvers", icon: <CheckCircle2 className="h-6 w-6" /> },
+  { title: "Plaatsen afvoer", icon: <Package className="h-6 w-6" /> },
+  { title: "Ontdoen bomen & hagen", icon: <HardHat className="h-6 w-6" /> },
+  { title: "Kleine afbraakwerken", icon: <HardHat className="h-6 w-6" /> }
 ];
 
 const machines = [
@@ -28,132 +32,132 @@ const machines = [
 const GrondwerkenPage = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-32 hero-gradient">
-        <div className="absolute inset-0 z-0">
-          <motion.img
-            src={excavatorLarge}
-            alt="Grondwerken"
-            className="w-full h-full object-cover opacity-30"
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70" />
-        </div>
+      {/* Hero Section - Responsive Padding & Height */}
+      <section className="relative py-20 md:py-32 hero-gradient min-h-[60vh] flex items-center">
+  <div className="absolute inset-0 z-0">
+    <img
+      src={excavatorLarge}
+      alt="Grondwerken"
+      className="w-full h-full object-cover opacity-30"
+    />
+    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70" />
+  </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.div
-              className="industrial-divider mb-6"
-              initial={{ width: 0 }}
-              animate={{ width: "6rem" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            />
-            <motion.h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wider mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              Grond- & Afbraakwerken
-            </motion.h1>
-            <motion.p
-              className="text-xl text-muted-foreground mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              Van kleine tuinprojecten tot volledige afbraak van gebouwen. Wij hebben de expertise en het machinepark.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">
-                  <HardHat className="h-5 w-5" />
-                  Vraag Offerte
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
+  <div className="container mx-auto px-4 relative z-10">
+    <motion.div
+      className="max-w-3xl"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
+      {/* Divider met breedte-animatie */}
+      <motion.div
+        className="industrial-divider mb-6 w-16 md:w-24"
+        initial={{ width: 0 }}
+        animate={{ width: "6rem" }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      />
+      
+      {/* Titel animatie */}
+      <motion.h1
+        className="font-display text-3xl sm:text-4xl md:text-6xl text-primary uppercase tracking-wider mb-4 leading-tight"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        Grond- & Afbraakwerken
+      </motion.h1>
+
+      {/* Paragraaf animatie */}
+      <motion.p
+        className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
+        Van kleine tuinprojecten tot volledige afbraak van gebouwen. Wij hebben de expertise en het machinepark.
+      </motion.p>
+
+      {/* Button container animatie */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+      >
+        <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+          <Link to="/contact">
+            <HardHat className="h-5 w-5" />
+            Vraag Offerte
+          </Link>
+        </Button>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+
+      {/* Expertise Section - Responsive Grid */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <FadeInView className="text-center mb-12 md:mb-16">
+            <h2 className="font-display text-3xl md:text-5xl text-primary uppercase tracking-tighter mb-4">
+              Onze Diensten
+            </h2>
+            <div className="industrial-divider mx-auto mb-6" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
+              Professionele uitvoering van al uw grond- en afbraakwerken met eigen materieel.
+            </p>
+          </FadeInView>
+
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.05}>
+            {services.map((item, index) => (
+              <StaggerItem key={index}>
+                <motion.div 
+                  className="group bg-card border border-border p-6 flex flex-col justify-between h-full hover:border-primary transition-all duration-300 relative overflow-hidden"
+                  whileHover={{ y: -5 }}
+                >
+                  <span className="absolute -right-2 -bottom-4 text-5xl md:text-6xl font-display text-primary/5 group-hover:text-primary/10 transition-colors">
+                    {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                  </span>
+                  <div className="text-primary mb-4">{item.icon}</div>
+                  <h3 className="font-display text-base md:text-lg text-card-foreground uppercase tracking-wider group-hover:text-primary transition-colors leading-tight">
+                    {item.title}
+                  </h3>
+                  <div className="w-0 h-1 bg-primary mt-4 group-hover:w-full transition-all duration-500" />
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Expertise Section */}
-      <section className="py-20 bg-background">
+      {/* Machinepark - Responsive Images & Layout */}
+      <section className="py-16 md:py-20 industrial-section">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <FadeInView>
-              <div className="bg-card border-l-4 border-primary p-8 rounded-sm mb-12">
-                <p className="text-xl md:text-2xl text-card-foreground italic">
-                  "Bent u geen handige harry of is uw project te groot? Wij komen graag langs voor een offerte op maat."
-                </p>
-              </div>
-            </FadeInView>
-
-            <FadeInView className="text-center mb-12" delay={0.1}>
-              <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-4">
-                Onze Diensten
-              </h2>
-              <div className="industrial-divider mx-auto" />
-            </FadeInView>
-
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerDelay={0.05}>
-              {services.map((service) => (
-                <StaggerItem key={service}>
-                  <motion.div
-                    className="bg-secondary border border-border rounded-sm p-4 flex items-center gap-3 hover:border-primary transition-colors"
-                    whileHover={{ x: 8, transition: { duration: 0.2 } }}
-                  >
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-card-foreground">{service}</span>
-                  </motion.div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </div>
-      </section>
-
-      {/* Machinepark */}
-      <section className="py-20 industrial-section">
-        <div className="container mx-auto px-4">
-          <FadeInView className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-4">
+          <FadeInView className="text-center mb-12 md:mb-16">
+            <h2 className="font-display text-2xl md:text-4xl text-primary uppercase tracking-wider mb-4">
               Ons Machinepark
             </h2>
             <div className="industrial-divider mx-auto mb-6" />
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
               Met ons uitgebreide machinepark zijn we uitgerust voor elk project, van kleine tuinwerken tot grote afbraakprojecten.
             </p>
           </FadeInView>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6" staggerDelay={0.1}>
             {machines.map((machine) => (
               <StaggerItem key={machine.name}>
-                <motion.div
-                  className="container-card group h-full"
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                >
-                  <div className="relative h-48 mb-4 overflow-hidden rounded-sm">
+                <motion.div className="container-card group h-full p-4 md:p-6" whileHover={{ y: -8 }}>
+                  <div className="relative h-40 md:h-48 mb-4 overflow-hidden rounded-sm">
                     <img
-                      src={machine.image}
+                      src="/placeholder.svg"
                       alt={machine.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="font-display text-lg text-primary uppercase tracking-wider mb-2">
+                  <h3 className="font-display text-base md:text-lg text-primary uppercase tracking-wider mb-2">
                     {machine.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     {machine.description}
                   </p>
                 </motion.div>
@@ -161,117 +165,73 @@ const GrondwerkenPage = () => {
             ))}
           </StaggerContainer>
 
-          <FadeInView className="mt-12 text-center" delay={0.3}>
-            <motion.div
-              className="inline-flex items-center gap-4 bg-card border border-border rounded-sm px-6 py-4"
-              whileHover={{ scale: 1.02 }}
-            >
-              <Truck className="h-8 w-8 text-primary" />
+          <FadeInView className="mt-10 md:mt-12 text-center" delay={0.3}>
+            <div className="inline-flex items-center gap-4 bg-card border border-border rounded-sm px-4 py-3 md:px-6 md:py-4">
+              <Truck className="h-6 w-6 md:h-8 md:w-8 text-primary" />
               <div className="text-left">
-                <span className="block font-display text-lg text-primary uppercase tracking-wider">
+                <span className="block font-display text-base md:text-lg text-primary uppercase tracking-wider leading-tight">
                   + Dumper & Rol
                 </span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-[10px] md:text-sm text-muted-foreground uppercase">
                   Voor transport en verdichting
                 </span>
               </div>
-            </motion.div>
+            </div>
           </FadeInView>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <FadeInView className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-4">
+      {/* Process Section - Stacked on Mobile */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <FadeInView className="mb-12 md:mb-16">
+            <h2 className="font-display text-2xl md:text-4xl text-primary uppercase tracking-wider mb-4 leading-tight">
               Hoe Werkt Het?
             </h2>
             <div className="industrial-divider mx-auto" />
           </FadeInView>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto" staggerDelay={0.15}>
-            <StaggerItem>
-              <div className="text-center">
-                <motion.div
-                  className="w-16 h-16 mx-auto mb-6 bg-primary rounded-sm flex items-center justify-center"
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                >
-                  <span className="font-display text-2xl text-primary-foreground">1</span>
-                </motion.div>
-                <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
-                  Contact
-                </h3>
-                <p className="text-muted-foreground">
-                  Neem contact op via telefoon of het formulier. Beschrijf uw project kort.
-                </p>
-              </div>
-            </StaggerItem>
-
-            <StaggerItem>
-              <div className="text-center">
-                <motion.div
-                  className="w-16 h-16 mx-auto mb-6 bg-primary rounded-sm flex items-center justify-center"
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                >
-                  <span className="font-display text-2xl text-primary-foreground">2</span>
-                </motion.div>
-                <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
-                  Offerte
-                </h3>
-                <p className="text-muted-foreground">
-                  Wij komen langs voor een gratis plaatsbezoek en bezorgen u een offerte op maat.
-                </p>
-              </div>
-            </StaggerItem>
-
-            <StaggerItem>
-              <div className="text-center">
-                <motion.div
-                  className="w-16 h-16 mx-auto mb-6 bg-primary rounded-sm flex items-center justify-center"
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                >
-                  <span className="font-display text-2xl text-primary-foreground">3</span>
-                </motion.div>
-                <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
-                  Uitvoering
-                </h3>
-                <p className="text-muted-foreground">
-                  Na akkoord plannen we de werken in en voeren we deze vakkundig uit.
-                </p>
-              </div>
-            </StaggerItem>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 max-w-4xl mx-auto" staggerDelay={0.15}>
+            {[
+              { num: "1", title: "Contact", text: "Neem contact op via telefoon of het formulier. Beschrijf uw project kort." },
+              { num: "2", title: "Offerte", text: "Wij komen langs voor een gratis plaatsbezoek en bezorgen u een offerte op maat." },
+              { num: "3", title: "Uitvoering", text: "Na akkoord plannen we de werken in en voeren we deze vakkundig uit." }
+            ].map((step) => (
+              <StaggerItem key={step.num}>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 mb-6 bg-primary rounded-sm flex items-center justify-center font-display text-xl md:text-2xl text-primary-foreground">
+                    {step.num}
+                  </div>
+                  <h3 className="font-display text-lg md:text-xl text-primary uppercase mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm md:text-base">{step.text}</p>
+                </div>
+              </StaggerItem>
+            ))}
           </StaggerContainer>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-card border-t border-border">
-        <div className="container mx-auto px-4">
-          <FadeInView className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-6">
+      {/* CTA Section - Full Width Buttons on Mobile */}
+      <section className="py-16 md:py-20 bg-card border-t border-border">
+        <div className="container mx-auto px-4 text-center">
+          <FadeInView className="max-w-3xl mx-auto">
+            <h2 className="font-display text-2xl md:text-4xl text-primary uppercase tracking-wider mb-6">
               Project Bespreken?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-base md:text-lg text-muted-foreground mb-8">
               Vraag vandaag nog een vrijblijvende offerte aan. Wij komen graag langs om de mogelijkheden te bespreken.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="hero" size="xl" asChild>
-                  <Link to="/contact">
-                    Vraag Offerte
-                    <ArrowRight className="h-5 w-5" />
-                  </Link>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="heroOutline" size="xl" asChild>
-                  <a href="tel:0476926625">
-                    <Phone className="h-5 w-5" />
-                    0476 / 92 66 25
-                  </a>
-                </Button>
-              </motion.div>
+              <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+                <Link to="/contact">
+                  Vraag Offerte <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button variant="heroOutline" size="xl" className="w-full sm:w-auto" asChild>
+                <a href="tel:0476926625">
+                  <Phone className="h-5 w-5" /> 0476 / 92 66 25
+                </a>
+              </Button>
             </div>
           </FadeInView>
         </div>

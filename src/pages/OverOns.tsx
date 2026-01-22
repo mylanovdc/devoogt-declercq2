@@ -76,73 +76,79 @@ const OverOnsPage = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <FadeInView className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-4">
-              Onze Geschiedenis
-            </h2>
-            <div className="industrial-divider mx-auto" />
-          </FadeInView>
+     {/* Timeline Section - Verbeterd met statische jaartallen */}
+<section className="py-24 bg-background overflow-hidden">
+  <div className="container mx-auto px-4">
+    <FadeInView className="text-center mb-20">
+      <h2 className="font-display text-4xl md:text-5xl text-primary uppercase tracking-wider mb-4">
+        Onze Geschiedenis
+      </h2>
+      <div className="industrial-divider mx-auto" />
+    </FadeInView>
 
-          <div className="max-w-4xl mx-auto relative">
-            {/* Timeline Line */}
-            <motion.div
-              className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              style={{ transformOrigin: "top" }}
-            />
+    <div className="max-w-5xl mx-auto relative">
+      {/* Centrale verticale lijn */}
+      <motion.div
+        className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 md:-translate-x-1/2"
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+        style={{ transformOrigin: "top" }}
+      />
 
-            {/* Timeline Events */}
-            <div className="space-y-12">
-              {timelineEvents.map((event, index) => (
-                <motion.div
-                  key={event.year}
-                  className={`relative flex flex-col md:flex-row gap-8 ${
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  {/* Year Badge */}
-                  <motion.div
-                    className="absolute left-0 md:left-1/2 w-16 h-16 bg-primary rounded-sm flex items-center justify-center -translate-x-1/2 md:-translate-x-1/2 z-10"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
-                    <span className="font-display text-lg text-primary-foreground font-bold">
-                      {event.year}
-                    </span>
-                  </motion.div>
+      <div className="space-y-24">
+        {timelineEvents.map((event, index) => (
+          <motion.div
+            key={event.year}
+            className={`relative flex flex-col md:flex-row gap-8 ${
+              index % 2 === 0 ? "md:flex-row-reverse" : ""
+            }`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+          >
+            {/* Jaartal Badge - Nu zonder beweging naar rechts */}
+            <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20">
+  <motion.div
+    className="w-16 h-16 bg-primary rounded-sm flex items-center justify-center shadow-[0_0_20px_rgba(255,255,0,0.2)] cursor-default"
+    whileHover={{ 
+      rotate: 15, 
+      scale: 1.1,
+      boxShadow: "0_0_30px_rgba(255,255,0,0.5)" 
+    }}
+    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+  >
+    <span className="font-display text-xl text-primary-foreground font-black">
+      {event.year}
+    </span>
+  </motion.div>
+</div>
 
-                  {/* Content */}
-                  <div className={`md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-                    <motion.div
-                      className="bg-card border border-border rounded-sm p-6 hover:border-primary transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
-                        {event.title}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {event.description}
-                      </p>
-                    </motion.div>
-                  </div>
-
-                  {/* Spacer for opposite side */}
-                  <div className="hidden md:block md:w-1/2" />
-                </motion.div>
-              ))}
+            {/* Content Kaart */}
+            <div className={`md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? "md:pr-20" : "md:pl-20"}`}>
+              <div className="group bg-card border border-border p-8 hover:border-primary transition-all duration-300 relative">
+                {/* Subtiel industrieel accent */}
+                <div className="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-500" />
+                
+                <h3 className="font-display text-2xl text-primary uppercase tracking-tighter mb-3">
+                  {event.title}
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {event.description}
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+
+            {/* Spacer */}
+            <div className="hidden md:block md:w-1/2" />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Values Section */}
       <section className="py-20 industrial-section">
@@ -158,12 +164,6 @@ const OverOnsPage = () => {
             <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.15}>
               <StaggerItem>
                 <div className="text-center">
-                  <motion.div
-                    className="w-20 h-20 mx-auto mb-6 bg-card border-2 border-primary rounded-sm flex items-center justify-center"
-                    whileHover={{ rotate: 10, scale: 1.1 }}
-                  >
-                    <span className="font-display text-3xl text-primary">K</span>
-                  </motion.div>
                   <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
                     Kwaliteit
                   </h3>
@@ -175,12 +175,6 @@ const OverOnsPage = () => {
 
               <StaggerItem>
                 <div className="text-center">
-                  <motion.div
-                    className="w-20 h-20 mx-auto mb-6 bg-card border-2 border-primary rounded-sm flex items-center justify-center"
-                    whileHover={{ rotate: 10, scale: 1.1 }}
-                  >
-                    <span className="font-display text-3xl text-primary">F</span>
-                  </motion.div>
                   <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
                     Familiebedrijf
                   </h3>
@@ -192,12 +186,6 @@ const OverOnsPage = () => {
 
               <StaggerItem>
                 <div className="text-center">
-                  <motion.div
-                    className="w-20 h-20 mx-auto mb-6 bg-card border-2 border-primary rounded-sm flex items-center justify-center"
-                    whileHover={{ rotate: 10, scale: 1.1 }}
-                  >
-                    <span className="font-display text-3xl text-primary">V</span>
-                  </motion.div>
                   <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
                     Vakmanschap
                   </h3>

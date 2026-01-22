@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logodevoogt-declercq.webp";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,16 +21,13 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="flex flex-col">
-              <span className="font-display text-2xl font-bold text-primary tracking-wider">
-                DEVOOGT-DECLERCQ
-              </span>
-              <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                Containerdienst & Grondwerken
-              </span>
-            </div>
-          </Link>
+<Link to="/" className="flex items-center group py-1">
+  <img 
+    src={logo} // <-- Gebruik hier de variabele 'logo' zonder aanhalingstekens
+    alt="Containerdienst Devoogt-Declercq B.V." 
+    className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+  />
+</Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
