@@ -48,7 +48,7 @@ const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Containerdienst & Grondwerken
+              Grond- en afbraakwerken en containerverhuur
             </motion.h1>
             <motion.p
               className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-card-foreground uppercase tracking-wide mb-6"
@@ -115,15 +115,23 @@ const HomePage = () => {
             <div className="industrial-divider mx-auto" />
           </FadeInView>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.15}>
+          <StaggerContainer
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            staggerDelay={0.15}
+          >
             {/* Container Service */}
             <StaggerItem>
-              <motion.div className="container-card group h-full p-6 md:p-8 border border-border bg-card" whileHover={{ y: -8 }}>
+              <motion.div
+                className="container-card group h-full p-6 md:p-8 border border-border bg-card"
+                whileHover={{ y: -8 }}
+              >
                 <div className="relative h-40 md:h-48 mb-6 overflow-hidden rounded-sm">
-                  <img src="/placeholder.svg" alt="Service placeholder"/>
+                  <img src="/placeholder.svg" alt="Service placeholder" />
                 </div>
                 <div className="flex items-center gap-3 mb-4">
-                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">Containerverhuur</h3>
+                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">
+                    Containerverhuur
+                  </h3>
                 </div>
                 <p className="text-muted-foreground text-sm md:text-base mb-4 leading-relaxed">
                   Containers van 11m³ tot 28m³ voor al uw afvalstromen. Snel geleverd en opgehaald.
@@ -140,19 +148,26 @@ const HomePage = () => {
                   </li>
                 </ul>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link to="/containerverhuur">Meer Info <ArrowRight className="h-4 w-4" /></Link>
+                  <Link to="/containerverhuur">
+                    Meer Info <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
               </motion.div>
             </StaggerItem>
 
             {/* Groundwork Service */}
             <StaggerItem>
-              <motion.div className="container-card group h-full p-6 md:p-8 border border-border bg-card" whileHover={{ y: -8 }}>
+              <motion.div
+                className="container-card group h-full p-6 md:p-8 border border-border bg-card"
+                whileHover={{ y: -8 }}
+              >
                 <div className="relative h-40 md:h-48 mb-6 overflow-hidden rounded-sm">
-                 <img src="/placeholder.svg" alt="Service placeholder"/>
+                  <img src="/placeholder.svg" alt="Service placeholder" />
                 </div>
                 <div className="flex items-center gap-3 mb-4">
-                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">Grondwerken</h3>
+                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">
+                    Grondwerken
+                  </h3>
                 </div>
                 <p className="text-muted-foreground text-sm md:text-base mb-4 leading-relaxed">
                   Uitdelven, nivelleren en voorbereiden van uw terrein voor elk project.
@@ -169,19 +184,26 @@ const HomePage = () => {
                   </li>
                 </ul>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link to="/grondwerken">Meer Info <ArrowRight className="h-4 w-4" /></Link>
+                  <Link to="/grondwerken">
+                    Meer Info <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
               </motion.div>
             </StaggerItem>
 
             {/* Demolition Service */}
             <StaggerItem className="sm:col-span-2 lg:col-span-1">
-              <motion.div className="container-card group h-full p-6 md:p-8 border border-border bg-card" whileHover={{ y: -8 }}>
+              <motion.div
+                className="container-card group h-full p-6 md:p-8 border border-border bg-card"
+                whileHover={{ y: -8 }}
+              >
                 <div className="relative h-40 md:h-48 mb-6 overflow-hidden rounded-sm bg-secondary flex items-center justify-center">
-                  <img src="/placeholder.svg" alt="Service placeholder"/>
+                  <img src="/placeholder.svg" alt="Service placeholder" />
                 </div>
                 <div className="flex items-center gap-3 mb-4">
-                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">Afbraakwerken</h3>
+                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">
+                    Afbraakwerken
+                  </h3>
                 </div>
                 <p className="text-muted-foreground text-sm md:text-base mb-4 leading-relaxed">
                   Volledige afbraak van woningen en loodsen met gespecialiseerde machines.
@@ -198,7 +220,9 @@ const HomePage = () => {
                   </li>
                 </ul>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link to="/grondwerken">Meer Info <ArrowRight className="h-4 w-4" /></Link>
+                  <Link to="/grondwerken">
+                    Meer Info <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
               </motion.div>
             </StaggerItem>
@@ -214,27 +238,34 @@ const HomePage = () => {
               <div className="relative z-10">
                 <div className="industrial-divider mb-6 w-16 md:w-24" />
                 <h2 className="font-display text-3xl md:text-5xl text-primary uppercase mb-6 leading-tight">
-                  Al 45 jaar een <br /> <span className="text-card-foreground">begrip in de regio</span>
+                  Al 45 jaar een <br />{" "}
+                  <span className="text-card-foreground">begrip in de regio</span>
                 </h2>
                 <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-xl leading-relaxed">
-                  Wat in 1981 begon als een kleine ruimdienst, is onder leiding van de familie Devoogt uitgegroeid tot een volwaardige partner in grond- en afbraakwerken.
+                  Wat in 1981 begon als een kleine ruimdienst, is onder leiding van de familie
+                  Devoogt uitgegroeid tot een volwaardige partner in grond- en afbraakwerken.
                 </p>
                 <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-                  Vandaag bereiden we ons voor op de toekomst met de overdracht naar de nieuwe generatie: William en Stefanie Devoogt.
+                  Vandaag bereiden we ons voor op de toekomst met de overdracht naar de nieuwe
+                  generatie: William en Stefanie Devoogt.
                 </p>
                 <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
-                  <Link to="/over-ons">Ontdek ons verhaal <ArrowRight className="h-5 w-5 ml-2" /></Link>
+                  <Link to="/over-ons">
+                    Ontdek ons verhaal <ArrowRight className="h-5 w-5 ml-2" />
+                  </Link>
                 </Button>
               </div>
-              <span className="absolute -left-10 -top-20 text-[15rem] font-display font-black text-primary/5 pointer-events-none select-none hidden md:block">FAMILY</span>
+              <span className="absolute -left-10 -top-20 text-[15rem] font-display font-black text-primary/5 pointer-events-none select-none hidden md:block">
+                FAMILY
+              </span>
             </FadeInView>
 
             <FadeInView direction="right" className="relative mt-8 lg:mt-0">
               <div className="absolute -inset-2 md:-inset-4 border-2 border-primary/30 translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4 -z-10" />
               <div className="bg-card border border-border p-2 md:p-3 overflow-hidden shadow-2xl">
                 <img
-                  src="/placeholder.svg" 
-                  alt="Familie Devoogt-Declercq: William en Stefanie" 
+                  src="/placeholder.svg"
+                  alt="Familie Devoogt-Declercq: William en Stefanie"
                   className="w-full h-[300px] md:h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
                 <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 bg-primary p-4 md:p-6 shadow-xl transform translate-y-4 opacity-0 group-hover:opacity-100 transition-all duration-500 hidden md:block">
@@ -252,16 +283,23 @@ const HomePage = () => {
       <section className="py-16 md:py-20 bg-card border-y border-border">
         <div className="container mx-auto px-4 text-center">
           <FadeInView className="max-w-3xl mx-auto">
-            <h2 className="font-display text-2xl md:text-4xl text-primary uppercase tracking-wider mb-6 leading-tight">Klaar om te starten?</h2>
+            <h2 className="font-display text-2xl md:text-4xl text-primary uppercase tracking-wider mb-6 leading-tight">
+              Klaar om te starten?
+            </h2>
             <p className="text-base md:text-lg text-muted-foreground mb-8">
-              Neem vandaag nog contact met ons op voor een vrijblijvende offerte. Wij komen graag langs om uw project te bespreken.
+              Neem vandaag nog contact met ons op voor een vrijblijvende offerte. Wij komen graag
+              langs om uw project te bespreken.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
-                <a href="tel:0476926625"><Phone className="h-5 w-5 mr-2" /> 0476 / 92 66 25</a>
+                <a href="tel:0476926625">
+                  <Phone className="h-5 w-5 mr-2" /> 0476 / 92 66 25
+                </a>
               </Button>
               <Button variant="heroOutline" size="xl" className="w-full sm:w-auto" asChild>
-                <Link to="/contact">Vraag Offerte <ArrowRight className="h-5 w-5 ml-2" /></Link>
+                <Link to="/contact">
+                  Vraag Offerte <ArrowRight className="h-5 w-5 ml-2" />
+                </Link>
               </Button>
             </div>
           </FadeInView>
