@@ -1,6 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import zeefInstallatie from "@/assets/machines/zeef.jpeg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -18,7 +17,6 @@ import {
   Recycle,
   TreePine,
 } from "lucide-react";
-import containerImage from "@/assets/container-yellow.jpg";
 
 const containerSizes = [
   { size: "11m³", description: "Ideaal voor kleine renovaties en tuinprojecten" },
@@ -75,7 +73,7 @@ const ContainerverhuurPage = () => {
       <section className="relative py-20 md:py-32 hero-gradient min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
-            src={containerImage}
+            src="placeholder.svg"
             alt="Container verhuur"
             className="w-full h-full object-cover opacity-30"
           />
@@ -270,7 +268,7 @@ const ContainerverhuurPage = () => {
               className="relative group overflow-hidden border border-border bg-card aspect-video lg:aspect-square xl:aspect-video"
             >
               <img
-                src={zeefInstallatie}
+                src="machines/zeef.jpeg"
                 alt="Eigen zeefinstallatie Devoogt-Declercq"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

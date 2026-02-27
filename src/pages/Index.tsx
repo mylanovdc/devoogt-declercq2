@@ -4,9 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Truck, HardHat, Package, ArrowRight, Phone, CheckCircle2 } from "lucide-react";
-import heroImage from "@/assets/hero-construction.jpg";
-import containerImage from "@/assets/container-yellow.jpg";
-import excavatorImage from "@/assets/excavator-large.jpg";
 
 const scrollToServices = () => {
   const servicesSection = document.getElementById("services-section");
@@ -22,7 +19,7 @@ const HomePage = () => {
       <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center hero-gradient py-16 md:py-0">
         <div className="absolute inset-0 z-0">
           <img
-            src={heroImage}
+            src="machines/achtergrond.jpeg"
             alt="Devoogt-Declercq machinepark in actie"
             className="w-full h-full object-cover opacity-40"
           />
@@ -48,7 +45,7 @@ const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Grond- en afbraakwerken en containerverhuur
+              Grond- en afbraakwerken & containerverhuur
             </motion.h1>
             <motion.p
               className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-card-foreground uppercase tracking-wide mb-6"
@@ -74,7 +71,6 @@ const HomePage = () => {
             >
               <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
                 <Link to="/containerverhuur">
-                  <Package className="h-5 w-5" />
                   Container Huren
                 </Link>
               </Button>
@@ -106,129 +102,81 @@ const HomePage = () => {
       </section>
 
       {/* Services Grid - Responsive Kolommen */}
-      <section id="services-section" className="py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <FadeInView className="text-center mb-12 md:mb-16">
-            <h2 className="font-display text-2xl md:text-4xl text-primary uppercase tracking-wider mb-4">
-              Onze Diensten
-            </h2>
-            <div className="industrial-divider mx-auto" />
-          </FadeInView>
+      <section id="services-section" className="py-16 md:py-24 bg-background">
+  <div className="container mx-auto px-4">
+    <FadeInView className="text-center mb-12 md:mb-20">
+      <h2 className="font-display text-3xl md:text-5xl text-primary uppercase tracking-wider mb-4">
+        Onze Diensten
+      </h2>
+      <div className="industrial-divider mx-auto" />
+    </FadeInView>
 
-          <StaggerContainer
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-            staggerDelay={0.15}
+    <StaggerContainer
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      staggerDelay={0.15}
+    >
+      {/* Service Kaart Template */}
+      {[
+        {
+          title: "Containerverhuur",
+          desc: "Containers van 11m³ tot 28m³ voor al uw afvalstromen. Snel geleverd en opgehaald met eigen transportservice.",
+          items: ["Steenpuin & Aarde", "Asbest (gecertificeerd)", "Restafval & Hout"],
+          link: "/containerverhuur"
+        },
+        {
+          title: "Grondwerken",
+          desc: "Professioneel uitdelven, nivelleren en voorbereiden van uw terrein voor elk bouw- of tuinproject.",
+          items: ["Opritten & Terrassen", "Zwembaden & Putten", "Nivelleringswerken"],
+          link: "/grondwerken"
+        },
+        {
+          title: "Afbraakwerken",
+          desc: "Veilige en efficiënte afbraak van woningen, garages en loodsen met moderne machines en afvoer.",
+          items: ["Woningen & Loodsen", "Beton & Funderingen", "Sorteerwerk ter plaatse"],
+          link: "/grondwerken"
+        }
+      ].map((service, index) => (
+        <StaggerItem key={index}>
+          <motion.div
+            className="group h-full p-6 md:p-8 border border-border bg-card flex flex-col"
+            whileHover={{ y: -5 }} // Alleen een subtiele lift, geen kleurverandering
           >
-            {/* Container Service */}
-            <StaggerItem>
-              <motion.div
-                className="container-card group h-full p-6 md:p-8 border border-border bg-card"
-                whileHover={{ y: -8 }}
-              >
-                <div className="relative h-40 md:h-48 mb-6 overflow-hidden rounded-sm">
-                  <img src="/placeholder.svg" alt="Service placeholder" />
-                </div>
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">
-                    Containerverhuur
-                  </h3>
-                </div>
-                <p className="text-muted-foreground text-sm md:text-base mb-4 leading-relaxed">
-                  Containers van 11m³ tot 28m³ voor al uw afvalstromen. Snel geleverd en opgehaald.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Steenpuin & Aarde
-                  </li>
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Asbest (gecertificeerd)
-                  </li>
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Restafval & Gyproc
-                  </li>
-                </ul>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/containerverhuur">
-                    Meer Info <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </motion.div>
-            </StaggerItem>
+            {/* Foto zonder filters */}
+            <div className="relative h-56 mb-8 overflow-hidden rounded-sm border border-border">
+              <img 
+                src="/placeholder.svg" 
+                alt={service.title} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            <h3 className="font-display text-xl md:text-2xl text-primary uppercase mb-4">
+              {service.title}
+            </h3>
+            
+            <p className="text-muted-foreground text-base mb-6 flex-grow">
+              {service.desc}
+            </p>
+            
+            <ul className="space-y-3 mb-8">
+              {service.items.map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-card-foreground text-sm font-medium">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0" /> {item}
+                </li>
+              ))}
+            </ul>
 
-            {/* Groundwork Service */}
-            <StaggerItem>
-              <motion.div
-                className="container-card group h-full p-6 md:p-8 border border-border bg-card"
-                whileHover={{ y: -8 }}
-              >
-                <div className="relative h-40 md:h-48 mb-6 overflow-hidden rounded-sm">
-                  <img src="/placeholder.svg" alt="Service placeholder" />
-                </div>
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">
-                    Grondwerken
-                  </h3>
-                </div>
-                <p className="text-muted-foreground text-sm md:text-base mb-4 leading-relaxed">
-                  Uitdelven, nivelleren en voorbereiden van uw terrein voor elk project.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Opritten & Terrassen
-                  </li>
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Zwembaden & Regenputten
-                  </li>
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Nivelleringswerken
-                  </li>
-                </ul>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/grondwerken">
-                    Meer Info <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </motion.div>
-            </StaggerItem>
-
-            {/* Demolition Service */}
-            <StaggerItem className="sm:col-span-2 lg:col-span-1">
-              <motion.div
-                className="container-card group h-full p-6 md:p-8 border border-border bg-card"
-                whileHover={{ y: -8 }}
-              >
-                <div className="relative h-40 md:h-48 mb-6 overflow-hidden rounded-sm bg-secondary flex items-center justify-center">
-                  <img src="/placeholder.svg" alt="Service placeholder" />
-                </div>
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="font-display text-lg md:text-xl text-primary uppercase">
-                    Afbraakwerken
-                  </h3>
-                </div>
-                <p className="text-muted-foreground text-sm md:text-base mb-4 leading-relaxed">
-                  Volledige afbraak van woningen en loodsen met gespecialiseerde machines.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Woningen & Loodsen
-                  </li>
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Afvoer inbegrepen
-                  </li>
-                  <li className="flex items-center gap-2 text-card-foreground text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> Offerte op maat
-                  </li>
-                </ul>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/grondwerken">
-                    Meer Info <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </motion.div>
-            </StaggerItem>
-          </StaggerContainer>
-        </div>
-      </section>
+            <Button variant="heroOutline" className="w-full" asChild>
+              <Link to={service.link}>
+                Meer Info <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </motion.div>
+        </StaggerItem>
+      ))}
+    </StaggerContainer>
+  </div>
+</section>
 
       {/* Over Ons Teaser Section met Foto */}
       <section className="py-16 md:py-24 bg-secondary/10 overflow-hidden border-t border-border">

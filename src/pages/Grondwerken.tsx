@@ -3,10 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
-import excavator24t from "@/assets/machines/24t.jpeg";
-import excavator5t from "@/assets/machines/5t.jpeg";
-import excavator15t from "@/assets/machines/15t.jpeg";
-import excavator2t from "@/assets/machines/2t.jpeg";
 import { HardHat, Truck, CheckCircle2, ArrowRight, Phone, Package } from "lucide-react";
 
 const services = [
@@ -30,14 +26,14 @@ const machines = [
   {
     name: "Minigraver 2t",
     description: "Voor krappe ruimtes en tuinwerken",
-    image: excavator2t,
+    image: "machines/2t.jpeg",
   },
-  { name: "Kraan 5t", description: "Veelzijdig voor middelgrote projecten", image: excavator5t },
-  { name: "Kraan 15t", description: "Voor grotere grond- en afbraakwerken", image: excavator15t },
+  { name: "Kraan 5t", description: "Veelzijdig voor middelgrote projecten", image: "machines/5t.jpeg", },
+  { name: "Kraan 15t", description: "Voor grotere grond- en afbraakwerken", image: "machines/15t.jpeg", },
   {
     name: "Kraan 24t",
     description: "Voor zware afbraak en grootschalige projecten",
-    image: excavator24t,
+    image: "machines/24t.jpeg",
   },
   {
     name: "Vrachtwagen 6x4",
@@ -68,7 +64,7 @@ const GrondwerkenPage = () => {
       <section className="relative py-20 md:py-32 hero-gradient min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
-            src={excavator24t}
+            src="machines/24t.jpeg"
             alt="Grondwerken"
             className="w-full h-full object-cover opacity-30"
           />
@@ -97,7 +93,7 @@ const GrondwerkenPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Grond- & Afbraakwerken
+              Grond- en Afbraakwerken
             </motion.h1>
 
             {/* Paragraaf animatie */}
