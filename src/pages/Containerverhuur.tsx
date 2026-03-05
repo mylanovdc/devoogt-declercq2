@@ -2,7 +2,11 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
+import {
+  FadeInView,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/animations";
 import {
   Package,
   CheckCircle2,
@@ -19,9 +23,18 @@ import {
 } from "lucide-react";
 
 const containerSizes = [
-  { size: "11m³", description: "Ideaal voor kleine renovaties en tuinprojecten" },
-  { size: "15m³", description: "Perfect voor middelgrote klussen en opruimwerken" },
-  { size: "20m³", description: "Geschikt voor grotere bouw- en afbraakprojecten" },
+  {
+    size: "11m³",
+    description: "Ideaal voor kleine renovaties en tuinprojecten",
+  },
+  {
+    size: "15m³",
+    description: "Perfect voor middelgrote klussen en opruimwerken",
+  },
+  {
+    size: "20m³",
+    description: "Geschikt voor grotere bouw- en afbraakprojecten",
+  },
   { size: "28m³", description: "Voor grote volumes en industriële projecten" },
 ];
 
@@ -73,7 +86,7 @@ const ContainerverhuurPage = () => {
       <section className="relative py-20 md:py-32 hero-gradient min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="placeholder.svg"
+            src="machines/achtergrond.jpeg"
             alt="Container verhuur"
             className="w-full h-full object-cover opacity-30"
           />
@@ -107,15 +120,20 @@ const ContainerverhuurPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Containers van 11m³ tot 28m³ voor al uw afvalstromen. Snelle levering en ophaling in
-              de regio.
+              Containers van 11m³ tot 28m³ voor al uw afvalstromen. Snelle
+              levering en ophaling in de regio.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto"
+                asChild
+              >
                 <Link to="/contact">
                   <Package className="h-5 w-5" />
                   Container Aanvragen
@@ -135,8 +153,8 @@ const ContainerverhuurPage = () => {
             </h2>
             <div className="industrial-divider mx-auto mb-6" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-              Kies de juiste container voor uw project. Niet zeker welk volume u nodig heeft? Neem
-              contact op voor advies.
+              Kies de juiste container voor uw project. Niet zeker welk volume u
+              nodig heeft? Neem contact op voor advies.
             </p>
           </FadeInView>
 
@@ -219,9 +237,10 @@ const ContainerverhuurPage = () => {
                   Belangrijke informatie
                 </h4>
                 <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                  Sommige afvalstromen zoals asbest of asfalt met koolteer vereisen specifieke
-                  procedures. Neem bij twijfel of voor grote projecten altijd contact met ons op
-                  voor de meest recente richtlijnen.
+                  Sommige afvalstromen zoals asbest of asfalt met koolteer
+                  vereisen specifieke procedures. Neem bij twijfel of voor grote
+                  projecten altijd contact met ons op voor de meest recente
+                  richtlijnen.
                 </p>
               </div>
             </div>
@@ -240,10 +259,16 @@ const ContainerverhuurPage = () => {
               </h2>
               <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed">
                 Wij beschikken over een eigen{" "}
-                <strong className="text-card-foreground font-bold">breekinstallatie</strong> en{" "}
-                <strong className="text-card-foreground font-bold">zeefinstallatie</strong>.
-                Hierdoor hebben wij diverse recuperatiematerialen en opvoermateriaal direct ter
-                beschikking voor uw project. Recuperatiemateriaal kan worden afgehaald of geleverd.
+                <strong className="text-card-foreground font-bold">
+                  breekinstallatie
+                </strong>{" "}
+                en{" "}
+                <strong className="text-card-foreground font-bold">
+                  zeefinstallatie
+                </strong>
+                . Hierdoor hebben wij diverse recuperatiematerialen en
+                opvoermateriaal direct ter beschikking voor uw project.
+                Recuperatiemateriaal kan worden afgehaald of geleverd.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3 text-sm md:text-base">
@@ -363,13 +388,19 @@ const ContainerverhuurPage = () => {
                     </h3>
                   </div>
                   <p className="text-lg md:text-xl text-card-foreground font-semibold mb-6">
-                    Beschikt u over eigen transport? Breng uw afvalstoffen direct naar ons terrein.
+                    Beschikt u over eigen transport? Breng uw afvalstoffen
+                    direct naar ons terrein.
                   </p>
                   <div className="inline-flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 text-primary font-display text-[10px] md:text-xs uppercase tracking-widest mb-8">
                     <Clock className="h-4 w-4" /> Enkel na telefonische afspraak
                   </div>
                 </div>
-                <Button variant="hero" size="xl" className="w-full relative z-10 mt-auto" asChild>
+                <Button
+                  variant="hero"
+                  size="xl"
+                  className="w-full relative z-10 mt-auto"
+                  asChild
+                >
                   <a href="tel:0476926625">
                     <Phone className="h-5 w-5 mr-2" /> Bel voor afspraak
                   </a>
@@ -392,7 +423,8 @@ const ContainerverhuurPage = () => {
                     </h3>
                   </div>
                   <p className="text-lg md:text-xl text-card-foreground font-semibold mb-6 leading-tight">
-                    Flexibele logistiek voor al uw recuperatie- en opvoermateriaal.
+                    Flexibele logistiek voor al uw recuperatie- en
+                    opvoermateriaal.
                   </p>
                   <div className="grid grid-cols-2 gap-3 md:gap-4 mb-10">
                     <div className="p-3 md:p-6 border border-border bg-background/50 text-center">
@@ -407,7 +439,12 @@ const ContainerverhuurPage = () => {
                     </div>
                   </div>
                 </div>
-                <Button variant="hero" size="xl" className="w-full relative z-10 mt-auto" asChild>
+                <Button
+                  variant="hero"
+                  size="xl"
+                  className="w-full relative z-10 mt-auto"
+                  asChild
+                >
                   <a href="tel:0476926625">
                     <Package className="h-5 w-5 mr-2" /> Bestel Materiaal
                   </a>
@@ -426,15 +463,26 @@ const ContainerverhuurPage = () => {
               Container Nodig?
             </h2>
             <p className="text-sm md:text-lg text-muted-foreground mb-8">
-              Vraag vandaag nog een offerte aan. Wij zorgen voor snelle levering en ophaling.
+              Vraag vandaag nog een offerte aan. Wij zorgen voor snelle levering
+              en ophaling.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto"
+                asChild
+              >
                 <Link to="/contact">
                   Vraag Offerte <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>
               </Button>
-              <Button variant="heroOutline" size="xl" className="w-full sm:w-auto" asChild>
+              <Button
+                variant="heroOutline"
+                size="xl"
+                className="w-full sm:w-auto"
+                asChild
+              >
                 <a href="tel:0476926625">
                   <Phone className="h-5 w-5 mr-2" /> 0476 / 92 66 25
                 </a>

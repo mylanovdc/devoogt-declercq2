@@ -2,24 +2,149 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
-import { HardHat, Truck, CheckCircle2, ArrowRight, Phone, Package } from "lucide-react";
+import {
+  FadeInView,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/animations";
+import {
+  Truck,
+  HardHat,
+  Pickaxe,
+  Drill,
+  Layers,
+  Droplets,
+  Waves,
+  Trees,
+  Fence,
+  MoveHorizontal,
+  Trash2,
+  Construction,
+  Scaling,
+  Hammer,
+  ArrowRight,
+  Phone,
+} from "lucide-react";
+
+const IconWrapper = ({ children }: { children: React.ReactNode }) => (
+  <div className="p-3 bg-primary/10 rounded-sm border-l-4 border-primary shadow-sm group-hover:bg-primary/20 transition-colors">
+    {children}
+  </div>
+);
 
 const services = [
-  { title: "Uitbreken en delven opritten", icon: <Truck className="h-6 w-6" /> },
-  { title: "Nivelleren terreinen", icon: <CheckCircle2 className="h-6 w-6" /> },
-  { title: "Plaatsen regenwater- en septische putten", icon: <Package className="h-6 w-6" /> },
-  { title: "Plaatsen zwembaden", icon: <CheckCircle2 className="h-6 w-6" /> },
-  { title: "Afbraak woningen", icon: <HardHat className="h-6 w-6" /> },
-  { title: "Afbraak loodsen", icon: <HardHat className="h-6 w-6" /> },
-  { title: "Grondafvoer & aanvoer", icon: <Truck className="h-6 w-6" /> },
-  { title: "Bouwrijp maken van terreinen", icon: <CheckCircle2 className="h-6 w-6" /> },
-  { title: "Plaatsen vijvers", icon: <CheckCircle2 className="h-6 w-6" /> },
-  { title: "Plaatsen riolering", icon: <Package className="h-6 w-6" /> },
-  { title: "Verwijderen bomen & hagen", icon: <HardHat className="h-6 w-6" /> },
-  { title: "Kleine afbraakwerken", icon: <HardHat className="h-6 w-6" /> },
-  { title: "Verwijderen afsluitingen", icon: <HardHat className="h-6 w-6" /> },
-  { title: "Plaatsen keerwanden", icon: <HardHat className="h-6 w-6" /> },
+  {
+    title: "Uitbreken en delven opritten",
+    icon: (
+      <IconWrapper>
+        <Pickaxe className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Nivelleren terreinen",
+    icon: (
+      <IconWrapper>
+        <MoveHorizontal className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Plaatsen regenwater- en septische putten",
+    icon: (
+      <IconWrapper>
+        <Layers className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Plaatsen zwembaden",
+    icon: (
+      <IconWrapper>
+        <Waves className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Afbraak woningen",
+    icon: (
+      <IconWrapper>
+        <Construction className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Afbraak loodsen",
+    icon: (
+      <IconWrapper>
+        <Drill className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Grondafvoer & aanvoer",
+    icon: (
+      <IconWrapper>
+        <Truck className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Bouwrijp maken van terreinen",
+    icon: (
+      <IconWrapper>
+        <Scaling className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Plaatsen vijvers",
+    icon: (
+      <IconWrapper>
+        <Droplets className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Plaatsen riolering",
+    icon: (
+      <IconWrapper>
+        <Trash2 className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Verwijderen bomen & hagen",
+    icon: (
+      <IconWrapper>
+        <Trees className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Kleine afbraakwerken",
+    icon: (
+      <IconWrapper>
+        <Hammer className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Verwijderen afsluitingen",
+    icon: (
+      <IconWrapper>
+        <Fence className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
+  {
+    title: "Plaatsen keerwanden",
+    icon: (
+      <IconWrapper>
+        <HardHat className="h-6 w-6 text-primary" />
+      </IconWrapper>
+    ),
+  },
 ];
 
 const machines = [
@@ -28,32 +153,35 @@ const machines = [
     description: "Voor krappe ruimtes en tuinwerken",
     image: "machines/2t.jpeg",
   },
-  { name: "Kraan 5t", description: "Veelzijdig voor middelgrote projecten", image: "machines/5t.jpeg", },
-  { name: "Kraan 15t", description: "Voor grotere grond- en afbraakwerken", image: "machines/15t.jpeg", },
+  {
+    name: "Kraan 5t",
+    description: "Veelzijdig voor middelgrote projecten",
+    image: "machines/5t.jpeg",
+  },
+  {
+    name: "Kraan 15t",
+    description: "Voor grotere grond- en afbraakwerken",
+    image: "machines/15t.jpeg",
+  },
   {
     name: "Kraan 24t",
     description: "Voor zware afbraak en grootschalige projecten",
     image: "machines/24t.jpeg",
   },
   {
-    name: "Vrachtwagen 6x4",
-    description: "Voor transport van containers en materialen",
-    image: "/placeholder.svg", // Vervang door echte foto van camion 1
+    name: "Vrachtwagen containerverhuur",
+    description: "Vrachtwagen voor containerverhuur",
+    image: "machines/vrachtwagen-verhuur.jpeg",
   },
   {
-    name: "Vrachtwagen 4x2",
-    description: "Flexibel transport voor kleinere werven",
-    image: "/placeholder.svg", // Vervang door echte foto van camion 2
+    name: "Vrachtwagen met dieplader",
+    description: "Vrachtwagen met dieplader voor vervoer van machines",
+    image: "machines/vrachtwagen-vervoer.jpeg",
   },
   {
-    name: "Hydraulische Breekhamer",
+    name: "Vrachtwagen met kipper",
     description: "Gespecialiseerd voor zware afbraakwerken",
-    image: "/placeholder.svg", // Vervang door foto van breekhamer
-  },
-  {
-    name: "Dumper & trilwans",
-    description: "Voor vlot grondverzet op elk terrein",
-    image: "/placeholder.svg",
+    image: "machines/vrachtwagen-kipper.jpeg",
   },
 ];
 
@@ -103,8 +231,8 @@ const GrondwerkenPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Van kleine tuinprojecten tot volledige afbraak van gebouwen. Wij hebben de expertise
-              en het machinepark.
+              Van kleine tuinprojecten tot volledige afbraak van gebouwen. Wij
+              hebben de expertise en het machinepark.
             </motion.p>
 
             {/* Button container animatie */}
@@ -113,7 +241,12 @@ const GrondwerkenPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto"
+                asChild
+              >
                 <Link to="/contact">Vraag Offerte</Link>
               </Button>
             </motion.div>
@@ -130,7 +263,8 @@ const GrondwerkenPage = () => {
             </h2>
             <div className="industrial-divider mx-auto mb-6" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
-              Professionele uitvoering van al uw grond- en afbraakwerken met eigen materieel.
+              Professionele uitvoering van al uw grond- en afbraakwerken met
+              eigen materieel.
             </p>
           </FadeInView>
 
@@ -168,8 +302,8 @@ const GrondwerkenPage = () => {
             </h2>
             <div className="industrial-divider mx-auto mb-6" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-              Met ons uitgebreide machinepark en gespecialiseerde hulpstukken zijn we uitgerust voor
-              elk project.
+              Met ons uitgebreide machinepark en gespecialiseerde hulpstukken
+              zijn we uitgerust voor elk project.
             </p>
           </FadeInView>
 
@@ -248,7 +382,9 @@ const GrondwerkenPage = () => {
                   <h3 className="font-display text-lg md:text-xl text-primary uppercase mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm md:text-base">{step.text}</p>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    {step.text}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -264,16 +400,26 @@ const GrondwerkenPage = () => {
               Project Bespreken?
             </h2>
             <p className="text-base md:text-lg text-muted-foreground mb-8">
-              Vraag vandaag nog een vrijblijvende offerte aan. Wij komen graag langs om de
-              mogelijkheden te bespreken.
+              Vraag vandaag nog een vrijblijvende offerte aan. Wij komen graag
+              langs om de mogelijkheden te bespreken.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto"
+                asChild
+              >
                 <Link to="/contact">
                   Vraag Offerte <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
-              <Button variant="heroOutline" size="xl" className="w-full sm:w-auto" asChild>
+              <Button
+                variant="heroOutline"
+                size="xl"
+                className="w-full sm:w-auto"
+                asChild
+              >
                 <a href="tel:0476926625">
                   <Phone className="h-5 w-5" /> 0476 / 92 66 25
                 </a>

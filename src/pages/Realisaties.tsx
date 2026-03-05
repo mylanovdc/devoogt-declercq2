@@ -1,76 +1,87 @@
-import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FadeInView } from "@/components/animations";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone } from "lucide-react";
 
-// DATA MET SLUGS VOOR DE URL
 const projects = [
   {
     id: 1,
-    slug: "uitgraven-zwembad", // Deze moet matchen met de key in RealisatieDetail.tsx
-    title: "Uitgraven Zwembad",
-    category: "grondwerken",
+    slug: "aanleg-speelplaats",
+    title: "Aanleg Speelplaats",
+    category: "Grondwerken",
     location: "Lichtervelde",
-    image: "/placeholder.svg",
+    image: "/realisaties/aanleg-speelplaats/foto7.jpg",
   },
   {
     id: 2,
-    slug: "plaatsen-containers",
-    title: "Plaatsen van 28m³ Containers",
-    category: "containers",
-    location: "Roeselare",
-    image: "/placeholder.svg",
+    slug: "afbraak-bouw-hangaar",
+    title: "Afbraak Bouw Hangaar",
+    category: "Afbraak",
+    location: "Torhout",
+    image: "/realisaties/afbraak-bouw-hangaar/foto9.jpg",
   },
   {
     id: 3,
-    slug: "afbraak-loods",
-    title: "Afbraak Oude Loods",
-    category: "grondwerken",
-    location: "Torhout",
-    image: "/placeholder.svg",
+    slug: "afbraak-tussenbouw-en-bijgebouwen",
+    title: "Afbraak Bijgebouwen",
+    category: "Afbraak",
+    location: "Lichtervelde",
+    image: "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto1.jpg",
   },
   {
     id: 4,
-    slug: "nivelleren-terrein",
-    title: "Nivelleren Bedrijfsterrein",
-    category: "grondwerken",
-    location: "Ardooie",
-    image: "/placeholder.svg",
+    slug: "afbraak-woningen",
+    title: "Afbraak Woningen",
+    category: "Afbraak",
+    location: "Lichtervelde",
+    image: "/realisaties/afbraak-woningen/foto1.jpg",
   },
   {
     id: 5,
-    slug: "asbestcontainer-levering",
-    title: "Levering Asbestcontainer",
-    category: "containers",
+    slug: "keerwanden-plaatsen",
+    title: "Plaatsen van Keerwanden",
+    category: "Grondwerken",
     location: "Kortemark",
-    image: "/placeholder.svg",
+    image: "/realisaties/keerwanden-plaatsen/foto10.jpg",
   },
   {
     id: 6,
-    slug: "grondverzet-nieuwbouw",
-    title: "Grondverzet Nieuwbouw",
-    category: "grondwerken",
-    location: "Hooglede",
-    image: "/placeholder.svg",
+    slug: "plaatsen-zwembad",
+    title: "Uitgraven & Plaatsen Zwembad",
+    category: "Grondwerken",
+    location: "Zedelgem",
+    image: "/realisaties/plaatsen-zwembad/foto6.jpg",
+  },
+  {
+    id: 7,
+    slug: "uitbreken-oprit-en-terras-plaatsen-riolering",
+    title: "Oprit, Terras & Riolering",
+    category: "Grondwerken",
+    location: "Lichtervelde",
+    image:
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto4.jpg",
+  },
+  {
+    id: 8,
+    slug: "totaalinrichting-bedrijfsterrein",
+    title: "Totaalinrichting bedrijfsterrein",
+    category: "Grondwerken",
+    location: "Lichtervelde",
+    image: "/realisaties/totaalinrichting-bedrijfsterrein/foto12.jpg",
+  },
+  {
+    id: 9,
+    slug: "voorbereiding-tuin",
+    title: "Voorbereiding Tuin",
+    category: "Grondwerken",
+    location: "Beernem",
+    image: "/realisaties/voorbereiding-tuin/foto1.jpg",
   },
 ];
 
-const categories = [
-  { id: "all", label: "Alles" },
-  { id: "grondwerken", label: "Grond- & Afbraak" },
-  { id: "containers", label: "Containers" },
-];
-
 const Realisaties = () => {
-  const [filter, setFilter] = useState("all");
-
-  const filteredProjects = filter === "all" 
-    ? projects 
-    : projects.filter(p => p.category === filter);
-
   return (
     <Layout>
       {/* Hero Section */}
@@ -88,85 +99,69 @@ const Realisaties = () => {
               animate={{ width: "6rem" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             />
-            <motion.h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wider mb-4"
-            >
+            <motion.h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wider mb-4">
               Onze Realisaties
             </motion.h1>
             <motion.p className="text-xl text-muted-foreground">
-              Een greep uit onze recente projecten in grondwerken, afbraak en containerverhuur.
+              Een overzicht van onze expertise in grondwerken en afbraak.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-12 bg-background">
+      {/* Projects Grid Section */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setFilter(cat.id)}
-                className={`px-8 py-3 font-display text-sm uppercase tracking-widest transition-all duration-300 border-2 ${
-                  filter === cat.id
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border hover:border-primary/50 text-muted-foreground"
-                }`}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            {projects.map((project) => (
+              <motion.div
+                key={project.id}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
               >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Projects Grid */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
+                <Link
+                  to={`/realisaties/${project.slug}`}
+                  className="group block relative bg-card border border-border overflow-hidden"
                 >
-                  {/* LINK NAAR DETAILPAGINA */}
-                  <Link to={`/realisaties/${project.slug}`} className="group block relative bg-card border border-border overflow-hidden">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
+                  <div className="aspect-[4/3] overflow-hidden bg-muted">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
 
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-2">
-                        <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                          {project.category}
-                        </span>
-                        <span className="text-xs text-muted-foreground">
-                          {project.location}
-                        </span>
-                      </div>
-                      <h3 className="font-display text-xl text-card-foreground uppercase group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <div className="mt-4 flex items-center text-sm font-bold uppercase tracking-wider text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                        Bekijk project <ArrowRight className="ml-2 h-4 w-4" />
-                      </div>
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                        {project.category}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {project.location}
+                      </span>
                     </div>
+                    <h3 className="font-display text-xl text-card-foreground uppercase group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="mt-4 flex items-center text-sm font-bold uppercase tracking-wider text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                      Bekijk project <ArrowRight className="ml-2 h-4 w-4" />
+                    </div>
+                  </div>
 
-                    {/* Industrial Accent */}
-                    <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
-                      <div className="absolute top-0 right-0 w-full h-[1px] bg-primary/30" />
-                      <div className="absolute top-0 right-0 h-full w-[1px] bg-primary/30" />
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                  {/* Industrial Accent Decor */}
+                  <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-full h-[1px] bg-primary/30" />
+                    <div className="absolute top-0 right-0 h-full w-[1px] bg-primary/30" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -175,13 +170,19 @@ const Realisaties = () => {
       <section className="py-20 bg-card border-t border-border">
         <div className="container mx-auto px-4 text-center">
           <FadeInView className="max-w-3xl mx-auto">
-            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-6">Laten we kennismaken</h2>
+            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-6">
+              Interesse in een samenwerking?
+            </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">Contact <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                <Link to="/contact">
+                  Vraag een offerte <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button variant="heroOutline" size="xl" asChild>
-                <a href="tel:0476926625"><Phone className="mr-2 h-5 w-5" /> 0476 / 92 66 25</a>
+                <a href="tel:0476926625">
+                  <Phone className="mr-2 h-5 w-5" /> 0476 / 92 66 25
+                </a>
               </Button>
             </div>
           </FadeInView>
