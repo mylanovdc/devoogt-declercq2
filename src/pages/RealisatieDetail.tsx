@@ -21,17 +21,15 @@ const projectData: Record<string, any> = {
     description:
       "Uitgraven van oud speelgazon en nivelleren van de ondergrond ter voorbereiding van nieuwe aanleg bij basisschool De Valke in Lichtervelde.",
     location: "Lichtervelde",
-    year: "2026",
-    type: "Grondwerken",
-    service: "Bouwrijp maken",
+    heroImage: "/realisaties/aanleg-speelplaats/foto7.webp",
     images: [
-      "/realisaties/aanleg-speelplaats/foto1.jpg",
-      "/realisaties/aanleg-speelplaats/foto2.jpg",
-      "/realisaties/aanleg-speelplaats/foto3.jpg",
-      "/realisaties/aanleg-speelplaats/foto4.jpg",
-      "/realisaties/aanleg-speelplaats/foto5.jpg",
-      "/realisaties/aanleg-speelplaats/foto6.jpg",
-      "/realisaties/aanleg-speelplaats/foto7.jpg",
+      "/realisaties/aanleg-speelplaats/foto1.webp",
+      "/realisaties/aanleg-speelplaats/foto2.webp",
+      "/realisaties/aanleg-speelplaats/foto3.webp",
+      "/realisaties/aanleg-speelplaats/foto4.webp",
+      "/realisaties/aanleg-speelplaats/foto5.webp",
+      "/realisaties/aanleg-speelplaats/foto6.webp",
+      "/realisaties/aanleg-speelplaats/foto7.webp",
     ],
   },
   "afbraak-bouw-hangaar": {
@@ -39,21 +37,19 @@ const projectData: Record<string, any> = {
     description:
       "Afbraak en opkuis van woning, opvoeren van grond en bouwrijp maken van terrein te Torhout.",
     location: "Torhout",
-    year: "2026",
-    type: "Afbraakwerken",
-    service: "Sloopwerken",
+    heroImage: "/realisaties/afbraak-bouw-hangaar/foto9.webp",
     images: [
-      "/realisaties/afbraak-bouw-hangaar/foto1.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto2.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto3.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto4.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto5.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto6.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto7.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto8.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto9.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto10.jpg",
-      "/realisaties/afbraak-bouw-hangaar/foto11.jpg",
+      "/realisaties/afbraak-bouw-hangaar/foto1.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto2.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto3.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto4.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto5.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto6.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto7.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto8.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto9.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto10.webp",
+      "/realisaties/afbraak-bouw-hangaar/foto11.webp",
     ],
   },
   "afbraak-tussenbouw-en-bijgebouwen": {
@@ -61,17 +57,15 @@ const projectData: Record<string, any> = {
     description:
       "Afbraak van tussen- en bijgebouwen, uitgraven voor septische put en uitbraak van de vloer binnen in de woning voor renovatieproject te Lichtervelde",
     location: "Lichtervelde",
-    year: "2026",
-    type: "Afbraakwerken",
-    service: "Sloopwerken",
+    heroImage: "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto1.webp",
     images: [
-      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto1.jpg",
-      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto2.jpg",
-      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto3.jpg",
-      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto4.jpg",
-      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto5.jpg",
-      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto6.jpg",
-      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto7.jpg",
+      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto1.webp",
+      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto2.webp",
+      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto3.webp",
+      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto4.webp",
+      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto5.webp",
+      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto6.webp",
+      "/realisaties/afbraak-tussenbouw-en-bijgebouwen/foto7.webp",
     ],
   },
   "afbraak-woningen": {
@@ -79,14 +73,13 @@ const projectData: Record<string, any> = {
     description:
       "Afbraak van bestaande woningen voor bouw van nieuwe tandartspraktijk in lichtervelde.",
     location: "Lichtervelde",
-    year: "2026",
-    service: "Sloopwerken",
+    heroImage: "/realisaties/afbraak-woningen/foto1.webp",
     images: [
-      "/realisaties/afbraak-woningen/foto1.jpg",
-      "/realisaties/afbraak-woningen/foto2.jpg",
-      "/realisaties/afbraak-woningen/foto3.jpg",
-      "/realisaties/afbraak-woningen/foto4.jpg",
-      "/realisaties/afbraak-woningen/foto5.jpg",
+      "/realisaties/afbraak-woningen/foto1.webp",
+      "/realisaties/afbraak-woningen/foto2.webp",
+      "/realisaties/afbraak-woningen/foto3.webp",
+      "/realisaties/afbraak-woningen/foto4.webp",
+      "/realisaties/afbraak-woningen/foto5.webp",
     ],
   },
   "keerwanden-plaatsen": {
@@ -94,21 +87,19 @@ const projectData: Record<string, any> = {
     description:
       "Plaatsen van keerwanden en opvoeren van grond in tuin bij nieuwbouwproject in Kortemark.",
     location: "Kortemark",
-    year: "2026",
-    type: "Grondwerken",
-    service: "Terreininrichting",
+    heroImage: "/realisaties/keerwanden-plaatsen/foto10.webp",
     images: [
-      "/realisaties/keerwanden-plaatsen/foto1.jpg",
-      "/realisaties/keerwanden-plaatsen/foto2.jpg",
-      "/realisaties/keerwanden-plaatsen/foto3.jpg",
-      "/realisaties/keerwanden-plaatsen/foto4.jpg",
-      "/realisaties/keerwanden-plaatsen/foto5.jpg",
-      "/realisaties/keerwanden-plaatsen/foto6.jpg",
-      "/realisaties/keerwanden-plaatsen/foto7.jpg",
-      "/realisaties/keerwanden-plaatsen/foto8.jpg",
-      "/realisaties/keerwanden-plaatsen/foto9.jpg",
-      "/realisaties/keerwanden-plaatsen/foto10.jpg",
-      "/realisaties/keerwanden-plaatsen/foto11.jpg",
+      "/realisaties/keerwanden-plaatsen/foto1.webp",
+      "/realisaties/keerwanden-plaatsen/foto2.webp",
+      "/realisaties/keerwanden-plaatsen/foto3.webp",
+      "/realisaties/keerwanden-plaatsen/foto4.webp",
+      "/realisaties/keerwanden-plaatsen/foto5.webp",
+      "/realisaties/keerwanden-plaatsen/foto6.webp",
+      "/realisaties/keerwanden-plaatsen/foto7.webp",
+      "/realisaties/keerwanden-plaatsen/foto8.webp",
+      "/realisaties/keerwanden-plaatsen/foto9.webp",
+      "/realisaties/keerwanden-plaatsen/foto10.webp",
+      "/realisaties/keerwanden-plaatsen/foto11.webp",
     ],
   },
   "plaatsen-zwembad": {
@@ -116,16 +107,14 @@ const projectData: Record<string, any> = {
     description:
       "Uitgraven, verharden, plaatsen zwembad en afwerken met stabilsé voor een klant in Zedelgem.",
     location: "Zedelgem",
-    year: "2026",
-    type: "Grondwerken",
-    service: "Uitgravingen",
+    heroImage: "/realisaties/plaatsen-zwembad/foto6.webp",
     images: [
-      "/realisaties/plaatsen-zwembad/foto1.jpg",
-      "/realisaties/plaatsen-zwembad/foto2.jpg",
-      "/realisaties/plaatsen-zwembad/foto3.jpg",
-      "/realisaties/plaatsen-zwembad/foto4.jpg",
-      "/realisaties/plaatsen-zwembad/foto5.jpg",
-      "/realisaties/plaatsen-zwembad/foto6.jpg",
+      "/realisaties/plaatsen-zwembad/foto1.webp",
+      "/realisaties/plaatsen-zwembad/foto2.webp",
+      "/realisaties/plaatsen-zwembad/foto3.webp",
+      "/realisaties/plaatsen-zwembad/foto4.webp",
+      "/realisaties/plaatsen-zwembad/foto5.webp",
+      "/realisaties/plaatsen-zwembad/foto6.webp",
     ],
   },
   "uitbreken-oprit-en-terras-plaatsen-riolering": {
@@ -133,16 +122,15 @@ const projectData: Record<string, any> = {
     description:
       "Uitbraak van oprit en terras, gevolgd door de plaatsing van nieuwe riolering volgens de normen te lichtervelde.",
     location: "Lichtervelde",
-    year: "2026",
-    type: "Grondwerken",
-    service: "Riolering & Verharding",
+    heroImage:
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto4.webp",
     images: [
-      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto1.jpg",
-      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto2.jpg",
-      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto3.jpg",
-      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto4.jpg",
-      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto5.jpg",
-      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto6.jpg",
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto1.webp",
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto2.webp",
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto3.webp",
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto4.webp",
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto5.webp",
+      "/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering/foto6.webp",
     ],
   },
   "totaalinrichting-bedrijfsterrein": {
@@ -150,23 +138,21 @@ const projectData: Record<string, any> = {
     description:
       "Verwijderen van bomen en struiken, het plaatsen van keerwanden en borduren, de aanleg van riolering en electriciteitsvoorziening voor laadpalen, ophogen van grond, asfalteringswerken en het opvoeren en afwerken van bestaande vijver in Lichtervelde.",
     location: "Lichtervelde",
-    year: "2026",
-    type: "Grondwerken",
-    service: "Groenverzet",
+    heroImage: "/realisaties/totaalinrichting-bedrijfsterrein/foto12.webp",
     images: [
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto1.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto2.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto3.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto4.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto5.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto6.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto7.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto8.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto9.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto10.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto11.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto12.jpg",
-      "/realisaties/totaalinrichting-bedrijfsterrein/foto13.jpg",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto1.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto2.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto3.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto4.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto5.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto6.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto7.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto8.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto9.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto10.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto11.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto12.webp",
+      "/realisaties/totaalinrichting-bedrijfsterrein/foto13.webp",
     ],
   },
   "voorbereiding-tuin": {
@@ -174,15 +160,13 @@ const projectData: Record<string, any> = {
     description:
       "Opkuis en nivellering van tuinen met aanleg van heuveltjes in opdracht van OptimaT bij psychiatrisch centrum Beernem.",
     location: "Beernem",
-    year: "2026",
-    type: "Grondwerken",
-    service: "Nivelleren",
+    heroImage: "/realisaties/voorbereiding-tuin/foto1.webp",
     images: [
-      "/realisaties/voorbereiding-tuin/foto1.jpg",
-      "/realisaties/voorbereiding-tuin/foto2.jpg",
-      "/realisaties/voorbereiding-tuin/foto3.jpg",
-      "/realisaties/voorbereiding-tuin/foto4.jpg",
-      "/realisaties/voorbereiding-tuin/foto5.jpg",
+      "/realisaties/voorbereiding-tuin/foto1.webp",
+      "/realisaties/voorbereiding-tuin/foto2.webp",
+      "/realisaties/voorbereiding-tuin/foto3.webp",
+      "/realisaties/voorbereiding-tuin/foto4.webp",
+      "/realisaties/voorbereiding-tuin/foto5.webp",
     ],
   },
 };
@@ -218,7 +202,7 @@ const RealisatieDetail = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-end overflow-hidden">
         <img
-          src={project.images[0]}
+          src={project.heroImage}
           className="absolute inset-0 w-full h-full object-cover"
           alt={project.title}
         />
@@ -261,26 +245,23 @@ const RealisatieDetail = () => {
 
             {/* Sidebar Details */}
             <div className="lg:col-span-1">
-              <div className="bg-card border border-border p-8 sticky top-24">
-                <h3 className="font-display text-xl uppercase mb-6 border-b border-border pb-4">
-                  Details
+              <div className="bg-card border border-border p-6 md:p-8 sticky top-24 shadow-xl">
+                <h3 className="font-display text-xl uppercase mb-6 border-b border-border pb-4 tracking-wider text-primary">
+                  Project Details
                 </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3 text-muted-foreground">
-                    <MapPin className="h-5 w-5 text-primary" />{" "}
-                    <strong>Locatie:</strong> {project.location}
-                  </li>
-                  <li className="flex items-center gap-3 text-muted-foreground">
-                    <Calendar className="h-5 w-5 text-primary" />{" "}
-                    <strong>Jaar:</strong> {project.year}
-                  </li>
-                  <li className="flex items-center gap-3 text-muted-foreground">
-                    <Tag className="h-5 w-5 text-primary" />{" "}
-                    <strong>Categorie:</strong> {project.type}
-                  </li>
-                  <li className="flex items-center gap-3 text-muted-foreground">
-                    <HardHat className="h-5 w-5 text-primary" />{" "}
-                    <strong>Dienst:</strong> {project.service}
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-4 text-muted-foreground">
+                    <div className="p-2 bg-primary/10 rounded-sm">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase font-bold tracking-tighter text-primary/60">
+                        Locatie
+                      </p>
+                      <p className="text-card-foreground font-medium text-lg">
+                        {project.location}
+                      </p>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -292,9 +273,6 @@ const RealisatieDetail = () => {
       {/* Gallery Section */}
       <section className="py-16 bg-card border-t border-border">
         <div className="container mx-auto px-4">
-          <h2 className="font-display text-2xl text-primary uppercase mb-10 text-center">
-            Foto's van het project
-          </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {project.images.map((img, index) => (
               <motion.div

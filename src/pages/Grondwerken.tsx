@@ -151,37 +151,37 @@ const machines = [
   {
     name: "Minigraver 2t",
     description: "Voor krappe ruimtes en tuinwerken",
-    image: "machines/2t.jpeg",
+    image: "machines/2t.webp",
   },
   {
     name: "Kraan 5t",
     description: "Veelzijdig voor middelgrote projecten",
-    image: "machines/5t.jpeg",
+    image: "machines/5t.webp",
   },
   {
     name: "Kraan 15t",
     description: "Voor grotere grond- en afbraakwerken",
-    image: "machines/15t.jpeg",
+    image: "machines/15t.webp",
   },
   {
     name: "Kraan 24t",
     description: "Voor zware afbraak en grootschalige projecten",
-    image: "machines/24t.jpeg",
+    image: "machines/24t.webp",
   },
   {
     name: "Vrachtwagen containerverhuur",
     description: "Vrachtwagen voor containerverhuur",
-    image: "machines/vrachtwagen-verhuur.jpeg",
+    image: "machines/vrachtwagen-verhuur.webp",
   },
   {
     name: "Vrachtwagen met dieplader",
     description: "Vrachtwagen met dieplader voor vervoer van machines",
-    image: "machines/vrachtwagen-vervoer.jpeg",
+    image: "machines/vrachtwagen-vervoer.webp",
   },
   {
     name: "Vrachtwagen met kipper",
     description: "Gespecialiseerd voor zware afbraakwerken",
-    image: "machines/vrachtwagen-kipper.jpeg",
+    image: "machines/vrachtwagen-kipper.webp",
   },
 ];
 
@@ -192,7 +192,7 @@ const GrondwerkenPage = () => {
       <section className="relative py-20 md:py-32 hero-gradient min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="machines/24t.jpeg"
+            src="machines/24t.webp"
             alt="Grondwerken"
             className="w-full h-full object-cover opacity-30"
           />

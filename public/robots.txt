@@ -1,14 +1,14 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Gebruik de ster om alle zoekmachines (Google, Bing, etc.) aan te spreken
 User-agent: *
+
+# Pagina's die we willen laten crawlen
 Allow: /
+Allow: /services/
+Allow: /realisaties/
+Allow: /contact
+
+# Blokkeer eventuele systeemmappen (als je die ooit toevoegt)
+Disallow: /api/
+
+# Verwijs direct naar je sitemap zodat Google alles in één keer vindt
+Sitemap: https://devoogt-declercq.be/sitemap.xml

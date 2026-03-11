@@ -2,45 +2,55 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
+import {
+  FadeInView,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/animations";
 import { ArrowRight, Phone } from "lucide-react";
 
 const timelineEvents = [
   {
     year: "1981",
     title: "De Start",
-    description: "Overname ruimdienst door Jean-Marie en Linda van nonkel Richard. Het begin van een familiebedrijf.",
-    image: "/placeholder.svg"
+    description:
+      "Overname ruimdienst door Jean-Marie en Linda van nonkel Richard. Het begin van een familiebedrijf.",
+    image: "/over-ons/foto1.webp",
   },
   {
     year: "2000",
     title: "Uitbreiding",
-    description: "Uitbreiding met containerverhuur in de Industrielaan. De eerste stap naar een breder dienstenaanbod.",
-    image: "/placeholder.svg"
+    description:
+      "Uitbreiding met containerverhuur in de Industrielaan. De eerste stap naar een breder dienstenaanbod.",
+    image: "/over-ons/foto2.webp",
   },
   {
     year: "2001",
     title: "Nieuwe Generatie",
-    description: "William treedt in dienst. Toevoeging van grond- en afbraakwerken aan het dienstenpakket.",
-    image: "/placeholder.svg"
+    description:
+      "William treedt in dienst. Toevoeging van grond- en afbraakwerken aan het dienstenpakket.",
+    image: "/over-ons/foto2.webp",
   },
   {
     year: "2010",
     title: "Nieuwe Locatie",
-    description: "Verhuizing naar de huidige locatie in de Mortelputstraat voor meer ruimte en groeimogelijkheden.",
-    image: "/placeholder.svg"
+    description:
+      "Verhuizing naar de huidige locatie in de Mortelputstraat voor meer ruimte en groeimogelijkheden.",
+    image: "/over-ons/foto4.webp",
   },
   {
     year: "2017",
     title: "Focus",
-    description: "Overname ruimdienst door derden. Jean-Marie gaat in welverdiend pensioen.",
-    image: "/placeholder.svg"
+    description:
+      "Overname ruimdienst door derden. Jean-Marie gaat in welverdiend pensioen.",
+    image: "/over-ons/foto5.webp",
   },
   {
     year: "2026",
     title: "De Toekomst",
-    description: "Officiële overdracht aan de nieuwe generatie: William en Stefanie Devoogt. Klaar voor de toekomst.",
-    image: "/placeholder.svg"
+    description:
+      "Officiële overdracht aan de nieuwe generatie: William en Stefanie Devoogt. Klaar voor de toekomst.",
+    image: "/over-ons/foto6.webp",
   },
 ];
 
@@ -62,13 +72,12 @@ const OverOnsPage = () => {
               animate={{ width: "6rem" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             />
-            <motion.h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wider mb-4"
-            >
+            <motion.h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wider mb-4">
               Over Ons
             </motion.h1>
             <motion.p className="text-xl text-muted-foreground">
-              Al meer dan 40 jaar een familiebedrijf met passie voor kwaliteit en service.
+              Al meer dan 40 jaar een familiebedrijf met passie voor kwaliteit
+              en service.
             </motion.p>
           </motion.div>
         </div>
@@ -130,10 +139,12 @@ const OverOnsPage = () => {
                   </div>
 
                   {/* Foto Kaart (Andere kant) */}
-                  <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}>
+                  <div
+                    className={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}
+                  >
                     <div className="relative group overflow-hidden border border-border aspect-video shadow-2xl">
-                      <img 
-                        src={event.image} 
+                      <img
+                        src={event.image}
                         alt={event.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
@@ -158,23 +169,41 @@ const OverOnsPage = () => {
               <div className="industrial-divider mx-auto" />
             </FadeInView>
 
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.15}>
+            <StaggerContainer
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              staggerDelay={0.15}
+            >
               <StaggerItem>
                 <div className="bg-card border border-border p-8 text-center hover:border-primary transition-colors">
-                  <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">Kwaliteit</h3>
-                  <p className="text-muted-foreground">Wij leveren enkel werk waar we trots op zijn. Geen halve maatregelen.</p>
+                  <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
+                    Kwaliteit
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Wij leveren enkel werk waar we trots op zijn. Geen halve
+                    maatregelen.
+                  </p>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="bg-card border border-border p-8 text-center hover:border-primary transition-colors">
-                  <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">Familiebedrijf</h3>
-                  <p className="text-muted-foreground">Persoonlijke aanpak en korte lijnen. U spreekt met de eigenaars.</p>
+                  <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
+                    Familiebedrijf
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Persoonlijke aanpak en korte lijnen. U spreekt met de
+                    eigenaars.
+                  </p>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="bg-card border border-border p-8 text-center hover:border-primary transition-colors">
-                  <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">Vakmanschap</h3>
-                  <p className="text-muted-foreground">Jarenlange ervaring en expertise. Wij kennen ons vak door en door.</p>
+                  <h3 className="font-display text-xl text-primary uppercase tracking-wider mb-3">
+                    Vakmanschap
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Jarenlange ervaring en expertise. Wij kennen ons vak door en
+                    door.
+                  </p>
                 </div>
               </StaggerItem>
             </StaggerContainer>
@@ -186,13 +215,19 @@ const OverOnsPage = () => {
       <section className="py-20 bg-card border-t border-border">
         <div className="container mx-auto px-4 text-center">
           <FadeInView className="max-w-3xl mx-auto">
-            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-6">Laten we kennismaken</h2>
+            <h2 className="font-display text-3xl md:text-4xl text-primary uppercase tracking-wider mb-6">
+              Laten we kennismaken
+            </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">Contact <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                <Link to="/contact">
+                  Contact <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button variant="heroOutline" size="xl" asChild>
-                <a href="tel:0476926625"><Phone className="mr-2 h-5 w-5" /> 0476 / 92 66 25</a>
+                <a href="tel:0476926625">
+                  <Phone className="mr-2 h-5 w-5" /> 0476 / 92 66 25
+                </a>
               </Button>
             </div>
           </FadeInView>

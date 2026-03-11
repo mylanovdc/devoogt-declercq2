@@ -86,7 +86,7 @@ const ContainerverhuurPage = () => {
       <section className="relative py-20 md:py-32 hero-gradient min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="machines/achtergrond.jpeg"
+            src="machines/achtergrond.webp"
             alt="Container verhuur"
             className="w-full h-full object-cover opacity-30"
           />
@@ -293,7 +293,7 @@ const ContainerverhuurPage = () => {
               className="relative group overflow-hidden border border-border bg-card aspect-video lg:aspect-square xl:aspect-video"
             >
               <img
-                src="machines/zeef.jpeg"
+                src="machines/zeef.webp"
                 alt="Eigen zeefinstallatie Devoogt-Declercq"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

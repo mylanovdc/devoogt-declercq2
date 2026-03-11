@@ -1,0 +1,23 @@
+# Forceer HSTS (Strict-Transport-Security)
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Forceer HTTPS (veiligheid)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2. Redirect WWW naar NON-WWW (Canonicalization)
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # 3. React Router Handle (bestaande code)
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

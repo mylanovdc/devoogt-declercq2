@@ -30,7 +30,7 @@ const HomePage = () => {
       <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center hero-gradient py-16 md:py-0">
         <div className="absolute inset-0 z-0">
           <img
-            src="machines/achtergrond.jpeg"
+            src="machines/achtergrond.webp"
             alt="Devoogt-Declercq machinepark in actie"
             className="w-full h-full object-cover opacity-40"
           />
@@ -62,14 +62,14 @@ const HomePage = () => {
             >
               Grond- en afbraakwerken & containerverhuur
             </motion.h1>
-            <motion.p
+            <motion.h2
               className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-card-foreground uppercase tracking-wide mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               Devoogt-Declercq
-            </motion.p>
+            </motion.h2>
             <motion.p
               className="text-base md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
@@ -149,7 +149,7 @@ const HomePage = () => {
                   "Restafval & Hout",
                 ],
                 link: "/containerverhuur",
-                image: "/machines/containerverhuur.jpeg",
+                image: "/machines/containerverhuur.webp",
               },
               {
                 title: "Grondwerken",
@@ -160,7 +160,7 @@ const HomePage = () => {
                   "Nivelleringswerken",
                 ],
                 link: "/grondwerken",
-                image: "/machines/grondwerken.jpeg",
+                image: "/machines/grondwerken.webp",
               },
               {
                 title: "Afbraakwerken",
@@ -171,7 +171,7 @@ const HomePage = () => {
                   "Sorteerwerk ter plaatse",
                 ],
                 link: "/grondwerken",
-                image: "/machines/afbraakwerken.jpeg",
+                image: "/machines/afbraakwerken.webp",
               },
             ].map((service, index) => (
               <StaggerItem key={index}>
@@ -262,7 +262,7 @@ const HomePage = () => {
               <div className="absolute -inset-2 md:-inset-4 border-2 border-primary/30 translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4 -z-10" />
               <div className="bg-card border border-border p-2 md:p-3 overflow-hidden shadow-2xl">
                 <img
-                  src="machines/familie-devoogt.jpeg"
+                  src="machines/familie-devoogt.webp"
                   alt="Familie Devoogt-Declercq: William en Stefanie"
                   className="w-full h-[300px] md:h-[500px] object-cover transition-all duration-700"
                 />

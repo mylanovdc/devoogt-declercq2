@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://devoogt-declercq.be/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://devoogt-declercq.be/services/grondwerken</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://devoogt-declercq.be/services/containerverhuur</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://devoogt-declercq.be/realisaties</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://devoogt-declercq.be/over-ons</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://devoogt-declercq.be/contact</loc>
+    <priority>0.90</priority>
+  </url>
+
+  <url><loc>https://devoogt-declercq.be/realisaties/totaalinrichting-bedrijfsterrein</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/keerwanden-plaatsen</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/afbraak-tussenbouw-en-bijgebouwen</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/aanleg-speelplaats</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/afbraak-bouw-hangaar</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/afbraak-woningen</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/plaatsen-zwembad</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/uitbreken-oprit-en-terras-plaatsen-riolering</loc><priority>0.60</priority></url>
+  <url><loc>https://devoogt-declercq.be/realisaties/voorbereiding-tuin</loc><priority>0.60</priority></url>
+</urlset>

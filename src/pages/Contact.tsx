@@ -5,7 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
-import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations";
+import {
+  FadeInView,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/animations";
 import { Phone, Mail, MapPin, Clock, Send, Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -98,7 +102,9 @@ const ContactPage = () => {
                       <Phone className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
                     <div>
-                      <span className="block text-muted-foreground text-sm">Telefoon</span>
+                      <span className="block text-muted-foreground text-sm">
+                        Telefoon
+                      </span>
                       <span className="text-lg text-card-foreground font-semibold">
                         0476 / 92 66 25
                       </span>
@@ -116,7 +122,9 @@ const ContactPage = () => {
                       <Mail className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
                     <div>
-                      <span className="block text-muted-foreground text-sm">E-mail</span>
+                      <span className="block text-muted-foreground text-sm">
+                        E-mail
+                      </span>
                       <span className="text-lg text-card-foreground font-semibold">
                         info@devoogt-declercq.be
                       </span>
@@ -159,7 +167,9 @@ const ContactPage = () => {
                       <Clock className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <span className="block text-muted-foreground text-sm">Bereikbaarheid</span>
+                      <span className="block text-muted-foreground text-sm">
+                        Bereikbaarheid
+                      </span>
                       <span className="text-lg text-card-foreground font-semibold">
                         Ma - Vr: 7:00 - 19:00
                       </span>
@@ -269,7 +279,9 @@ const ContactPage = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-card-foreground">Foto uploaden (optioneel)</Label>
+                  <Label className="text-card-foreground">
+                    Foto uploaden (optioneel)
+                  </Label>
                   <div className="relative">
                     <input
                       type="file"
@@ -284,17 +296,22 @@ const ContactPage = () => {
                       whileHover={{ scale: 1.01 }}
                     >
                       <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                      {fileName ?
+                      {fileName ? (
                         <p className="text-card-foreground">{fileName}</p>
-                      : <p className="text-muted-foreground">
-                          Klik om een foto te uploaden voor een snelle inschatting
+                      ) : (
+                        <p className="text-muted-foreground">
+                          Klik om een foto te uploaden voor een snelle
+                          inschatting
                         </p>
-                      }
+                      )}
                     </motion.div>
                   </div>
                 </div>
 
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <Button
                     type="submit"
                     variant="hero"
@@ -302,13 +319,14 @@ const ContactPage = () => {
                     className="w-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ?
+                    {isSubmitting ? (
                       "Verzenden..."
-                    : <>
+                    ) : (
+                      <>
                         <Send className="h-5 w-5" />
                         Verstuur Aanvraag
                       </>
-                    }
+                    )}
                   </Button>
                 </motion.div>
               </form>
