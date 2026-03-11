@@ -176,7 +176,6 @@ const RealisatieDetail = () => {
   const [selectedImg, setSelectedImg] = useState<number | null>(null);
   const project = projectData[id as keyof typeof projectData];
 
-  // Scroll naar boven bij laden
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -184,142 +183,168 @@ const RealisatieDetail = () => {
   if (!project)
     return (
       <Layout>
-        <div className="py-40 text-center">Project niet gevonden.</div>
+        <div className="py-40 text-center font-display uppercase tracking-widest text-muted-foreground">
+          Project niet gevonden.
+        </div>
       </Layout>
     );
 
-  const nextImg = () =>
+  const nextImg = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     setSelectedImg((prev) =>
       prev !== null && prev < project.images.length - 1 ? prev + 1 : 0,
     );
-  const prevImg = () =>
+  };
+
+  const prevImg = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     setSelectedImg((prev) =>
       prev !== null && prev > 0 ? prev - 1 : project.images.length - 1,
     );
+  };
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-end overflow-hidden">
-        <img
+      {/* Hero Section - Aangepaste hoogte voor mobiel */}
+      <section className="relative h-[50vh] md:h-[60vh] flex items-end overflow-hidden">
+        <motion.img
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.8 }}
           src={project.heroImage}
           className="absolute inset-0 w-full h-full object-cover"
           alt={project.title}
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-        <div className="container mx-auto px-4 relative z-10 pb-12">
+        <div className="container mx-auto px-4 relative z-10 pb-8 md:pb-12">
           <Link
             to="/realisaties"
-            className="inline-flex items-center text-white/80 hover:text-primary mb-6 transition-colors"
+            className="inline-flex items-center text-white/80 hover:text-primary mb-4 md:mb-6 transition-colors text-sm md:text-base group"
           >
-            <ArrowLeft className="mr-2 h-5 w-5" /> Terug naar overzicht
+            <ArrowLeft className="mr-2 h-4 w-4 md:h-5 md:w-5 group-hover:-translate-x-1 transition-transform" />
+            Terug naar overzicht
           </Link>
-          <h1 className="font-display text-4xl md:text-6xl text-white uppercase tracking-wider">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-6xl text-white uppercase tracking-wider leading-tight">
             {project.title}
           </h1>
         </div>
       </section>
 
       {/* Details Section */}
-      <section className="py-16 bg-background">
+      <section className="py-10 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Tekst */}
-            <div className="lg:col-span-2">
-              <h2 className="font-display text-2xl text-primary uppercase mb-6">
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 md:gap-12">
+            {/* Tekst - Komt eerst op mobiel */}
+            <div className="lg:col-span-2 order-2 lg:order-1">
+              <h2 className="font-display text-xl md:text-2xl text-primary uppercase mb-4 md:mb-6">
                 Projectomschrijving
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
                 {project.description}
               </p>
-              <Button variant="hero" asChild>
-                <a
-                  href={`mailto:info@devoogt-declercq.be?subject=Vraag over ${project.title}`}
-                >
-                  <Mail className="mr-2 h-5 w-5" /> Gelijkaardig project
-                  aanvragen
-                </a>
+              <Button variant="hero" asChild className="w-full sm:w-auto">
+                <Link to="/contact">Gelijkaardig project aanvragen</Link>
               </Button>
             </div>
 
-            {/* Sidebar Details */}
-            <div className="lg:col-span-1">
-              <div className="bg-card border border-border p-6 md:p-8 sticky top-24 shadow-xl">
-                <h3 className="font-display text-xl uppercase mb-6 border-b border-border pb-4 tracking-wider text-primary">
+            {/* Sidebar Details - Sticky gedrag alleen op desktop */}
+            <div className="lg:col-span-1 order-1 lg:order-2">
+              <div className="bg-card border border-border p-6 md:p-8 lg:sticky lg:top-24 shadow-xl">
+                <h3 className="font-display text-lg md:text-xl uppercase mb-4 md:mb-6 border-b border-border pb-4 tracking-wider text-primary">
                   Project Details
                 </h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-4 text-muted-foreground">
-                    <div className="p-2 bg-primary/10 rounded-sm">
-                      <MapPin className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] uppercase font-bold tracking-tighter text-primary/60">
-                        Locatie
-                      </p>
-                      <p className="text-card-foreground font-medium text-lg">
-                        {project.location}
-                      </p>
-                    </div>
-                  </li>
-                </ul>
+                <div className="flex items-center gap-4 text-muted-foreground">
+                  <div className="p-3 bg-primary/10 rounded-sm">
+                    <MapPin className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase font-bold tracking-widest text-primary/60">
+                      Locatie
+                    </p>
+                    <p className="text-card-foreground font-medium text-base md:text-lg">
+                      {project.location}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-16 bg-card border-t border-border">
+      {/* Gallery Section - Meer kolommen op mobiel (grid-cols-2) */}
+      <section className="py-12 md:py-16 bg-card border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <h2 className="font-display text-xl md:text-2xl text-center uppercase mb-8 md:mb-12 tracking-widest">
+            Fotogalerij
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {project.images.map((img, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.02 }}
-                className="aspect-square cursor-pointer overflow-hidden border border-border bg-background"
+                whileTap={{ scale: 0.98 }}
+                className="aspect-square cursor-pointer overflow-hidden border border-border bg-background group"
                 onClick={() => setSelectedImg(index)}
               >
-                <img src={img} alt="" className="w-full h-full object-cover" />
+                <img
+                  src={img}
+                  alt={`Project foto ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Lightbox Overlay */}
+      {/* Lightbox Overlay - Geoptimaliseerd voor Touch */}
       <AnimatePresence>
         {selectedImg !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-2 md:p-4 touch-none"
+            onClick={() => setSelectedImg(null)}
           >
+            {/* Close Button - Groter op mobiel voor 'fat fingers' */}
             <button
               onClick={() => setSelectedImg(null)}
-              className="absolute top-6 right-6 text-white hover:text-primary transition-colors"
+              className="absolute top-4 right-4 z-[110] text-white/70 hover:text-primary p-2 transition-colors"
             >
-              <X className="h-10 w-10" />
+              <X className="h-8 w-8 md:h-10 md:w-10" />
             </button>
+
+            {/* Navigation - Verborgen op hele kleine schermen, gebruik swipe (of tik) */}
             <button
               onClick={prevImg}
-              className="absolute left-4 text-white hover:text-primary"
+              className="hidden md:flex absolute left-4 z-[110] text-white/50 hover:text-primary p-4"
             >
               <ChevronLeft className="h-12 w-12" />
             </button>
-            <img
+
+            <motion.img
+              key={selectedImg}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               src={project.images[selectedImg]}
-              className="max-h-[85vh] max-w-full object-contain"
-              alt="Full size"
+              className="max-h-[80vh] md:max-h-[85vh] max-w-full object-contain pointer-events-none"
+              alt="Full size view"
             />
+
             <button
               onClick={nextImg}
-              className="absolute right-4 text-white hover:text-primary"
+              className="hidden md:flex absolute right-4 z-[110] text-white/50 hover:text-primary p-4"
             >
               <ChevronRight className="h-12 w-12" />
             </button>
+
+            {/* Indicatie voor mobiel */}
+            <div className="absolute bottom-8 text-white/40 text-sm font-medium md:hidden">
+              Tik om te sluiten
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -2,10 +2,21 @@
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
+// LOG FUNCTIE: Schrijft naar maillog.txt in de api map
+function log_mail_attempt($name, $status) {
+    $log_file = 'maillog.txt';
+    $timestamp = date("Y-m-d H:i:s");
+    $entry = "[$timestamp] Klant: $name | Status: $status" . PHP_EOL;
+    file_put_contents($log_file, $entry, FILE_APPEND);
+}
+
 if ($_SERVER["REQUEST_METHOD"] !== "POST") exit();
 
 // Honeypot tegen bots
-if (!empty($_POST["website"])) exit(json_encode(["success" => true]));
+if (!empty($_POST["website"])) {
+    log_mail_attempt("BOT DETECTED", "Geblokkeerd via honeypot");
+    exit(json_encode(["success" => true]));
+}
 
 // Data ophalen
 $name = strip_tags($_POST["name"] ?? "Onbekend");
@@ -16,7 +27,7 @@ $workAddress = strip_tags($_POST["workAddress"] ?? "Niet opgegeven");
 $date = strip_tags($_POST["date"] ?? "Niet opgegeven");
 $message = nl2br(strip_tags($_POST["message"] ?? ""));
 
-$to = "vandecaveyemylan@gmail.com";
+$to = "info@devoogt-declercq.be";
 $subject = "Nieuwe aanvraag: $name";
 
 // De mooie visuele layout
@@ -90,10 +101,12 @@ if ($attachment) {
 
 $body .= "--$boundary--";
 
-// 3. Verzenden
+// 3. Verzenden & Loggen
 if (mail($to, $subject, $body, $headers)) {
+    log_mail_attempt($name, "SUCCESS - Mail verzonden naar server");
     echo json_encode(["success" => true]);
 } else {
+    log_mail_attempt($name, "FAIL - Server weigerde verzending");
     http_response_code(500);
     echo json_encode(["success" => false, "message" => "Mail server error"]);
 }
