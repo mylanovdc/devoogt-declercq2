@@ -29,17 +29,36 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // FormData haalt automatisch alle 'name' velden op uit de form
+    const formData = new FormData(e.currentTarget);
 
-    toast({
-      title: "Bericht verzonden!",
-      description: "Wij nemen zo snel mogelijk contact met u op.",
-    });
+    try {
+      const response = await fetch("/api/contact.php", {
+        method: "POST",
+        body: formData, // Verstuur de complete FormData
+      });
 
-    setIsSubmitting(false);
-    setFileName(null);
-    (e.target as HTMLFormElement).reset();
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Bericht verzonden!",
+          description: "Wij nemen zo snel mogelijk contact met u op.",
+        });
+        (e.target as HTMLFormElement).reset();
+        setFileName(null);
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Verzenden mislukt",
+        description: "Er liep iets mis. Probeer het later opnieuw of bel ons.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -185,7 +204,20 @@ const ContactPage = () => {
                 Offerteformulier
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                onSubmit={handleSubmit}
+                encType="multipart/form-data"
+                className="space-y-6"
+              >
+                {/* Honeypot: Onzichtbaar voor mensen, bots vullen dit in en worden geblokkeerd door PHP */}
+                <input
+                  type="text"
+                  name="website"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-card-foreground">
@@ -195,6 +227,7 @@ const ContactPage = () => {
                       id="name"
                       name="name"
                       required
+                      disabled={isSubmitting}
                       placeholder="Uw naam"
                       className="bg-card border-border focus:border-primary"
                     />
@@ -208,6 +241,7 @@ const ContactPage = () => {
                       name="phone"
                       type="tel"
                       required
+                      disabled={isSubmitting}
                       placeholder="Uw telefoonnummer"
                       className="bg-card border-border focus:border-primary"
                     />
@@ -223,11 +257,13 @@ const ContactPage = () => {
                     name="email"
                     type="email"
                     required
+                    disabled={isSubmitting}
                     placeholder="uw.email@voorbeeld.be"
                     className="bg-card border-border focus:border-primary"
                   />
                 </div>
 
+                {/* We gebruiken 'address' en 'workAddress' zoals in je PHP script */}
                 <div className="space-y-2">
                   <Label htmlFor="address" className="text-card-foreground">
                     Uw Adres
@@ -235,6 +271,7 @@ const ContactPage = () => {
                   <Input
                     id="address"
                     name="address"
+                    disabled={isSubmitting}
                     placeholder="Straat en huisnummer, postcode, gemeente"
                     className="bg-card border-border focus:border-primary"
                   />
@@ -247,6 +284,7 @@ const ContactPage = () => {
                   <Input
                     id="workAddress"
                     name="workAddress"
+                    disabled={isSubmitting}
                     placeholder="Indien verschillend van uw adres"
                     className="bg-card border-border focus:border-primary"
                   />
@@ -260,6 +298,7 @@ const ContactPage = () => {
                     id="date"
                     name="date"
                     type="date"
+                    disabled={isSubmitting}
                     className="bg-card border-border focus:border-primary"
                   />
                 </div>
@@ -272,6 +311,7 @@ const ContactPage = () => {
                     id="message"
                     name="message"
                     required
+                    disabled={isSubmitting}
                     placeholder="Beschrijf uw project of vraag hier..."
                     rows={5}
                     className="bg-card border-border focus:border-primary resize-none"
@@ -288,12 +328,15 @@ const ContactPage = () => {
                       id="photo"
                       name="photo"
                       accept="image/*"
+                      disabled={isSubmitting}
                       onChange={handleFileChange}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
                     />
                     <motion.div
-                      className="bg-card border border-dashed border-border rounded-sm p-6 text-center hover:border-primary transition-colors"
-                      whileHover={{ scale: 1.01 }}
+                      className={`bg-card border border-dashed border-border rounded-sm p-6 text-center transition-colors ${
+                        isSubmitting ? "opacity-50" : "hover:border-primary"
+                      }`}
+                      whileHover={!isSubmitting ? { scale: 1.01 } : {}}
                     >
                       <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
                       {fileName ? (
@@ -309,8 +352,8 @@ const ContactPage = () => {
                 </div>
 
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
                   <Button
                     type="submit"
@@ -320,10 +363,10 @@ const ContactPage = () => {
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
-                      "Verzenden..."
+                      "Bezig met verzenden..."
                     ) : (
                       <>
-                        <Send className="h-5 w-5" />
+                        <Send className="h-5 w-5 mr-2" />
                         Verstuur Aanvraag
                       </>
                     )}
