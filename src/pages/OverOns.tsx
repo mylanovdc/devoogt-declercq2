@@ -29,7 +29,7 @@ const timelineEvents = [
     title: "Nieuwe Generatie",
     description:
       "William treedt in dienst. Toevoeging van grond- en afbraakwerken aan het dienstenpakket.",
-    image: "/over-ons/foto2.webp",
+    image: "/over-ons/foto3.webp",
   },
   {
     year: "2010",
